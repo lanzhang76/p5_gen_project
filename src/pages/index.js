@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Project title</h1>
+        <h1 className={styles.title}>PROJECT LOREM</h1>
 
         <ExperienceWrapper />
       </main>
