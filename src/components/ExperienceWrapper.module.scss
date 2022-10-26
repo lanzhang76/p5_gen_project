@@ -1,0 +1,52 @@
+.buttonGroup {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+
+  button {
+    background: white;
+    width: 80px;
+    border-radius: 5px;
+    margin: 0 0 0 15px;
+    color: black;
+  }
+}
+
+.backgroundGroup {
+  display: flex;
+  align-items: center;
+
+  input {
+    margin: 10px;
+  }
+}
+
+.generateButton {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+
+  input {
+    width: 200px;
+    height: 30px;
+    margin: 0 10px;
+    padding: 10px;
+  }
+
+  button {
+    width: 100px;
+    border-radius: 5px;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.saveButton {
+  button {
+    background: grey;
+    width: 80px;
+    border-radius: 5px;
+    margin: 15px 0;
+  }
+}

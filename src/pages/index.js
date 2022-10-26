@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import P5Canvas from "../components/P5";
+import ExperienceWrapper from "../components/ExperienceWrapper";
 
 export default function Home() {
   return (
@@ -13,9 +13,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className="text-3xl font-bold underline">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>Project title</h1>
+
+        <ExperienceWrapper />
       </main>
 
       <footer className={styles.footer}>{/* footer component */}</footer>
