@@ -120,7 +120,8 @@ export default function P5Sketch(props) {
         //
         if (
             data.params.string.selected == false &&
-            data.params.shape.selected == false
+            data.params.shape.selected == false &&
+            data.params.symbol.selected
         ) {
             p5.background(p5.random(255), p5.random(255), p5.random(255));
         }
