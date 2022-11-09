@@ -4,7 +4,6 @@ const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
     ssr: false,
 });
 import { data, preloadData } from "../data/canvas_data";
-import simpleText from "../sketches/simpleText";
 import * as shapeFunc from "../sketches/shape/_shape";
 import * as symbolFunc from "../sketches/symbol/_symbol";
 import * as stringFunc from "../sketches/text/_text";
@@ -34,19 +33,15 @@ export default function P5Sketch(props) {
             group.push({ imgGroup, imgs });
         }
         data.params.symbol.value = group;
-        console.log(assetCount);
-
-        // let randomImg = p5.random(preloadData[imgGroup].files);
-        // data.params.symbol.value = p5.loadImage(randomImg);
-        // data.params.symbol.w = preloadData[imgGroup].w;
+        // console.log(assetCount);
 
         //preload fonts
         data.fonts.push(p5.loadFont("./fonts/bear.ttf"));
         data.fonts.push(p5.loadFont("./fonts/unicorn.ttf"));
-        data.fonts.push(p5.loadFont("./fonts/peach.ttf"));
-        data.fonts.push(p5.loadFont("./fonts/animal.ttf"));
-        data.fonts.push(p5.loadFont("./fonts/guangnian.ttf"));
-        data.fonts.push(p5.loadFont("./fonts/streetfighter.ttf"));
+        // data.fonts.push(p5.loadFont("./fonts/peach.ttf"));
+        // data.fonts.push(p5.loadFont("./fonts/animal.ttf"));
+        // data.fonts.push(p5.loadFont("./fonts/guangnian.ttf"));
+        // data.fonts.push(p5.loadFont("./fonts/streetfighter.ttf"));
     };
 
     const setup = (p5, canvasParentRef) => {
@@ -82,13 +77,19 @@ export default function P5Sketch(props) {
             stringFunc.textLayout(p5, data, data.params.string.value);
         }
 
-        // shapeFunc.colorGrid(p5, data);
-
+        //
         // LAYER 2: shape
         //
-        // 1. if LAYER 2 value != null, draw a random pattern with corresponding shape
-        // 2. if LAYER 2 value == null, draw nothing
-        //
+
+        // if layer 1 and 3 are not selected, add background color
+        if (
+            data.params.string.selected == false &&
+            data.params.symbol.selected == false &&
+            data.params.shape.selected
+        ) {
+            p5.background(p5.random(255), p5.random(255), p5.random(255));
+        }
+
         if (data.params.shape.selected != false) {
             console.log(data.params.shape.index);
             switch (data.params.shape.index) {
@@ -113,11 +114,12 @@ export default function P5Sketch(props) {
                     break;
             }
         }
-        // LAYER 3:symbole
+
         //
-        // 1. if LAYER 3 value != null, display the symbole in a random pattern/size
-        // 2. if LAYER 3 value == null, draw nothing
+        // LAYER 3:symbol
         //
+
+        // if layer 1 and 2 are not selected, add background color
         if (
             data.params.string.selected == false &&
             data.params.shape.selected == false &&
@@ -126,12 +128,10 @@ export default function P5Sketch(props) {
             p5.background(p5.random(255), p5.random(255), p5.random(255));
         }
 
-        console.log(data.params.symbol.selected, data.params.symbol.value);
         if (
             data.params.symbol.selected != false &&
             data.params.symbol.value != null
         ) {
-            console.log("in here");
             symbolFunc.drawSymbol(p5, data, preloadData);
         }
     };
@@ -139,10 +139,6 @@ export default function P5Sketch(props) {
     const windowResized = (p5, event) => {
         p5.resizeCanvas(p5.windowWidth * 0.8, p5.windowWidth * 0.8);
     };
-
-    useEffect(() => {
-        return () => {};
-    }, []);
 
     return (
         <>

@@ -47,25 +47,27 @@ export default function ExperienceWrapper(props) {
                 <div className={styles.optionGroup}>
                     {/* <input type="checkbox" id="stringInput" /> */}
                     <label className={styles.label}>shape:</label>
-                    {[1, 2, 3, 4, 5].map((el) => (
-                        <ParamButton
-                            el={el}
-                            shapeButtonClick={shapeButtonClick}
-                            selected={selectedShape}
-                            key={el + "g1"}
-                        ></ParamButton>
-                    ))}
+                    {[...Array(5)].map((el, index) => {
+                        return (
+                            <ParamButton
+                                el={index + 1}
+                                shapeButtonClick={shapeButtonClick}
+                                selected={selectedShape}
+                                key={index + "g1"}
+                            ></ParamButton>
+                        );
+                    })}
                 </div>
 
                 <div className={styles.optionGroup}>
                     {/* <input type="checkbox" id="stringInput" /> */}
                     <label className={styles.label}>symbol:</label>
-                    {[1, 2, 3, 4, 5, 6].map((el) => (
+                    {[...Array(6)].map((el, index) => (
                         <ParamButton
-                            el={el}
+                            el={index + 1}
                             shapeButtonClick={symbolButtonClick}
                             selected={selectedSymbol}
-                            key={el + "g_symbole"}
+                            key={index + "g_symbole"}
                         ></ParamButton>
                     ))}
                 </div>
