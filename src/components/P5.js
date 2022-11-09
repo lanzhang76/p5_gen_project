@@ -89,26 +89,45 @@ export default function P5Sketch(props) {
         // 1. if LAYER 2 value != null, draw a random pattern with corresponding shape
         // 2. if LAYER 2 value == null, draw nothing
         //
-        // if (combinations[1].value != null) {
-        //     let shape = combinations[1].value;
-        //     console.log(shape);
-        // }
+        if (data.params.shape.selected != false) {
+            console.log(data.params.shape.index);
+            switch (data.params.shape.index) {
+                case 1:
+                    shapeFunc.colorGrid(p5, data);
+                    break;
 
+                case 2:
+                    shapeFunc.simpleCircle(p5, data);
+                    break;
+
+                case 3:
+                    shapeFunc.quads(p5, data);
+                    break;
+
+                case 4:
+                    shapeFunc.circleGrid(p5, data);
+                    break;
+
+                case 5:
+                    shapeFunc.stack(p5, data);
+                    break;
+            }
+        }
         // LAYER 3:symbole
         //
         // 1. if LAYER 3 value != null, display the symbole in a random pattern/size
         // 2. if LAYER 3 value == null, draw nothing
         //
         if (
-            data.params.string.value == null &&
-            data.params.shape.value == null
+            data.params.string.selected == false &&
+            data.params.shape.selected == false
         ) {
             p5.background(p5.random(255), p5.random(255), p5.random(255));
         }
 
         console.log(data.params.symbol.selected, data.params.symbol.value);
         if (
-            data.params.symbol.selected != null &&
+            data.params.symbol.selected != false &&
             data.params.symbol.value != null
         ) {
             console.log("in here");

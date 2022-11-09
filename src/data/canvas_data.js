@@ -1,9 +1,9 @@
 // P5 is imperative, so all P5 variables will not require state management
 export let data = {
     params: {
-        string: { selected: true, value: null },
-        shape: { selected: true, index: null, value: null },
-        symbol: { selected: null, index: null, value: null, w: null },
+        string: { selected: false, value: null },
+        shape: { selected: false, index: null },
+        symbol: { selected: false, index: null, value: null, w: null },
     },
     canvas: null,
     fonts: [],
@@ -18,6 +18,10 @@ export let data = {
     },
     colorGrid: {
         step: 20,
+    },
+    simpleCircle: {
+        step: null,
+        steps: [],
     },
     drawSymbol: {
         step: 20,

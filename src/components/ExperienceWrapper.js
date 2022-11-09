@@ -18,6 +18,7 @@ export default function ExperienceWrapper(props) {
     const shapeButtonClick = (num) => {
         setSelectedShape(num);
         data.params.shape.index = num;
+        data.params.shape.selected = true;
     };
 
     const symbolButtonClick = (num) => {
@@ -45,7 +46,7 @@ export default function ExperienceWrapper(props) {
                 <div className={styles.optionGroup}>
                     {/* <input type="checkbox" id="stringInput" /> */}
                     <label className={styles.label}>shape:</label>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
+                    {[1, 2, 3, 4, 5, 6].map((el) => (
                         <ParamButton
                             el={el}
                             shapeButtonClick={shapeButtonClick}
@@ -58,7 +59,7 @@ export default function ExperienceWrapper(props) {
                 <div className={styles.optionGroup}>
                     {/* <input type="checkbox" id="stringInput" /> */}
                     <label className={styles.label}>symbol:</label>
-                    {[1, 2, 3, 4, 5, 6].map((el) => (
+                    {[1, 2, 3, 4, 5].map((el) => (
                         <ParamButton
                             el={el}
                             shapeButtonClick={symbolButtonClick}
