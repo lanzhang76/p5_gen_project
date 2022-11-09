@@ -1,0 +1,12 @@
+.buttonStyle {
+    background: white;
+    border-radius: 5%;
+    width: 18px;
+    margin: 0px 5px 0 0;
+    color: rgb(38, 40, 34);
+
+    &.active {
+        background: salmon;
+        color: white;
+    }
+}

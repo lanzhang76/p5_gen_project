@@ -1,78 +1,94 @@
 import React, { useState, useRef } from "react";
 import styles from "./ExperienceWrapper.module.scss";
 import P5Sketch from "./P5";
+import ParamButton from "./ParamButton";
 import { data } from "../data/canvas_data";
 
 export default function ExperienceWrapper(props) {
-  const inputBox = useRef();
-  const [sketchChoice, setSketchChoice] = useState(0);
-  const [sliderValue, setSliderValue] = useState(50);
+    const inputBox = useRef();
+    const [selectedString, setSelectedString] = useState(0);
+    const [selectedShape, setSelectedShape] = useState(0);
+    const [selectedSymbol, setSelectedSymbol] = useState(0);
 
-  const bgButtonClick = (e) => {
-    setSketchChoice(parseInt(e.target.value));
-    data.sketchChoice = parseInt(e.target.value);
-  };
+    const handleInput = (e) => {
+        setSelectedString(e.target.value);
+        data.params.string.value = e.target.value;
+    };
 
-  const generateSketch = (e) => {
-    console.log(inputBox.current.value);
-    data.text = inputBox.current.value;
-  };
+    const shapeButtonClick = (num) => {
+        setSelectedShape(num);
+        data.params.shape.index = num;
+    };
 
-  const changeBGColor = (e) => {
-    data.specs.backgroundColor = parseInt(e.target.value);
-    console.log(data.specs.backgroundColor);
-    setSliderValue(e.target.value);
-  };
+    const symbolButtonClick = (num) => {
+        setSelectedSymbol(num);
+        data.params.symbol.index = num;
+        data.params.symbol.selected = true;
+    };
 
-  return (
-    <>
-      <div className={styles.experienceWrapper}>
-        {/* Buttons */}
-        <div className={styles.buttonGroup}>
-          <span>sketch: </span>
-          <button onClick={bgButtonClick} value="0">
-            ball
-          </button>
-          <button onClick={bgButtonClick} value="1">
-            text
-          </button>
-        </div>
-        {/* Sliders */}
-        <div className={styles.backgroundGroup}>
-          <span>background grayscale: </span>
-          <input
-            type="range"
-            min="0"
-            max="255"
-            value={sliderValue}
-            step="1"
-            onChange={changeBGColor}
-          ></input>
-        </div>
+    const generateSketch = (e) => {
+        console.log(
+            `text:${selectedString}, shape: ${selectedShape}, symbol: ${selectedSymbol}`
+        );
+    };
 
-        {/* Generate */}
-        {sketchChoice === 1 && (
-          <div className={styles.generateButton}>
-            <label>text:</label> <input ref={inputBox}></input>
-            <button onClick={generateSketch}>
-              <span>Generate</span>
-            </button>
-          </div>
-        )}
-        {/*
-         ***
-         **
-         */}
-        <P5Sketch />
-        {/*
-         ***
-         **
-         */}
+    return (
+        <>
+            <div className={styles.experienceWrapper}>
+                {/* Buttons */}
+                <div className={styles.optionGroup}>
+                    {/* <input type="checkbox" id="stringInput" /> */}
+                    <label className={styles.label}>string:</label>
+                    <input ref={inputBox} onChange={handleInput}></input>
+                </div>
 
-        {/* <div className={styles.saveButton}>
+                <div className={styles.optionGroup}>
+                    {/* <input type="checkbox" id="stringInput" /> */}
+                    <label className={styles.label}>shape:</label>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
+                        <ParamButton
+                            el={el}
+                            shapeButtonClick={shapeButtonClick}
+                            selected={selectedShape}
+                            key={el + "g1"}
+                        ></ParamButton>
+                    ))}
+                </div>
+
+                <div className={styles.optionGroup}>
+                    {/* <input type="checkbox" id="stringInput" /> */}
+                    <label className={styles.label}>symbol:</label>
+                    {[1, 2, 3, 4, 5, 6].map((el) => (
+                        <ParamButton
+                            el={el}
+                            shapeButtonClick={symbolButtonClick}
+                            selected={selectedSymbol}
+                            key={el + "g_symbole"}
+                        ></ParamButton>
+                    ))}
+                </div>
+
+                {/* Generate */}
+
+                <div
+                    className={styles.generateButton}
+                    id="generateButton"
+                ></div>
+
+                {/*
+                 ***
+                 **
+                 */}
+                <P5Sketch />
+                {/*
+                 ***
+                 **
+                 */}
+
+                {/* <div className={styles.saveButton}>
           <button>save</button>
         </div> */}
-      </div>
-    </>
-  );
+            </div>
+        </>
+    );
 }
