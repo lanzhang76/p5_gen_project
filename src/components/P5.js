@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
-const Sketch = dynamic(() => import("react-p5").then((mod) => mod.default), {
+import React, { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
     ssr: false,
 });
-import { data, preloadData } from "../data/canvas_data";
-import * as shapeFunc from "../sketches/shape/_shape";
-import * as symbolFunc from "../sketches/symbol/_symbol";
-import * as stringFunc from "../sketches/text/_text";
+import { data, preloadData } from '../data/canvas_data';
+import * as shapeFunc from '../sketches/shape/_shape';
+import * as symbolFunc from '../sketches/symbol/_symbol';
+import * as stringFunc from '../sketches/text/_text';
 
 let button;
 let assetCount = 0;
@@ -36,8 +36,8 @@ export default function P5Sketch(props) {
         // console.log(assetCount);
 
         //preload fonts
-        data.fonts.push(p5.loadFont("./fonts/bear.ttf"));
-        data.fonts.push(p5.loadFont("./fonts/unicorn.ttf"));
+        data.fonts.push(p5.loadFont('./fonts/bear.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/unicorn.ttf'));
         // data.fonts.push(p5.loadFont("./fonts/peach.ttf"));
         // data.fonts.push(p5.loadFont("./fonts/animal.ttf"));
         // data.fonts.push(p5.loadFont("./fonts/guangnian.ttf"));
@@ -51,9 +51,9 @@ export default function P5Sketch(props) {
             .parent(canvasParentRef);
 
         //set up generate button
-        button = p5.createButton("generate");
-        button.addClass("generateBtn");
-        button.parent("generateButton");
+        button = p5.createButton('generate');
+        button.addClass('generateBtn');
+        button.parent('generateButton');
         button.mousePressed(() => {
             p5.clear();
             p5.redraw();
@@ -72,9 +72,13 @@ export default function P5Sketch(props) {
         // LAYER 1: string
         //
 
-        if (data.params.string.value != null) {
-            // console.log(data.params.string.value);
-            stringFunc.textLayout(p5, data, data.params.string.value);
+        if (
+            data.params.string.value != null &&
+            data.params.symbol.selected == false &&
+            data.params.shape.selected == false
+        ) {
+            console.log(data.params.string.value);
+            stringFunc.tiltGrid(p5, data, data.params.string.value);
         }
 
         //

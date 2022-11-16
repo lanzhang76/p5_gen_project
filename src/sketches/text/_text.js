@@ -1,3 +1,3 @@
-import { textLayout } from "./textLayout";
+import { tiltGrid } from './tiltGrid';
 
-export { textLayout };
+export { tiltGrid };
