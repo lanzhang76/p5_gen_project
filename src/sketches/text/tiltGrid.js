@@ -1,14 +1,15 @@
 export function tiltGrid(p5, data, str) {
-    let sizes = [20, 30, 40];
+    let sizes = [10, 15, 20, 30];
     let size = p5.random(sizes);
     let layout = p5.int(p5.random(4));
 
-    let string = str;
+    let string = `${str} `;
     let step = size * 2;
 
     let colors = data.colors['tiltGrid'];
 
     p5.noLoop();
+    p5.textFont(p5.random(data.fonts));
 
     p5.textSize(size);
     let ind = p5.random(colors);

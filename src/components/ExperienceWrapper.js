@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import styles from "./ExperienceWrapper.module.scss";
-import P5Sketch from "./P5";
-import ParamButton from "./ParamButton";
-import { data } from "../data/canvas_data";
+import React, { useState, useRef } from 'react';
+import styles from './ExperienceWrapper.module.scss';
+import P5Sketch from './P5';
+import ParamButton from './ParamButton';
+import { data } from '../data/canvas_data';
 
 export default function ExperienceWrapper(props) {
     const inputBox = useRef();
@@ -53,7 +53,7 @@ export default function ExperienceWrapper(props) {
                                 el={index + 1}
                                 shapeButtonClick={shapeButtonClick}
                                 selected={selectedShape}
-                                key={index + "g1"}
+                                key={index + 'g1'}
                             ></ParamButton>
                         );
                     })}
@@ -67,7 +67,7 @@ export default function ExperienceWrapper(props) {
                             el={index + 1}
                             shapeButtonClick={symbolButtonClick}
                             selected={selectedSymbol}
-                            key={index + "g_symbole"}
+                            key={index + 'g_symbole'}
                         ></ParamButton>
                     ))}
                 </div>

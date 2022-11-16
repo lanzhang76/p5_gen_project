@@ -37,10 +37,10 @@ export default function P5Sketch(props) {
 
         //preload fonts
         data.fonts.push(p5.loadFont('./fonts/bear.ttf'));
-        data.fonts.push(p5.loadFont('./fonts/unicorn.ttf'));
+        // data.fonts.push(p5.loadFont('./fonts/unicorn.ttf'));
         // data.fonts.push(p5.loadFont("./fonts/peach.ttf"));
         // data.fonts.push(p5.loadFont("./fonts/animal.ttf"));
-        // data.fonts.push(p5.loadFont("./fonts/guangnian.ttf"));
+        // data.fonts.push(p5.loadFont('./fonts/guangnian.ttf'));
         // data.fonts.push(p5.loadFont("./fonts/streetfighter.ttf"));
     };
 
@@ -77,8 +77,29 @@ export default function P5Sketch(props) {
             data.params.symbol.selected == false &&
             data.params.shape.selected == false
         ) {
-            console.log(data.params.string.value);
-            stringFunc.tiltGrid(p5, data, data.params.string.value);
+            let options = 4;
+            let stringFuncNum = Math.floor(Math.random() * options);
+            switch (stringFuncNum) {
+                case 0:
+                    stringFunc.tiltGrid(p5, data, data.params.string.value);
+                    break;
+
+                case 1:
+                    stringFunc.row(p5, data, data.params.string.value);
+                    break;
+
+                case 2:
+                    stringFunc.upsideDown(p5, data, data.params.string.value);
+                    break;
+
+                case 3:
+                    stringFunc.splash(p5, data, data.params.string.value);
+                    break;
+
+                default:
+                    stringFunc.splash(p5, data, data.params.string.value);
+                    break;
+            }
         }
 
         //
