@@ -38,10 +38,10 @@ export default function P5Sketch(props) {
         //preload fonts
         data.fonts.push(p5.loadFont('./fonts/bear.ttf'));
         // data.fonts.push(p5.loadFont('./fonts/unicorn.ttf'));
-        // data.fonts.push(p5.loadFont("./fonts/peach.ttf"));
-        // data.fonts.push(p5.loadFont("./fonts/animal.ttf"));
-        // data.fonts.push(p5.loadFont('./fonts/guangnian.ttf'));
-        // data.fonts.push(p5.loadFont("./fonts/streetfighter.ttf"));
+        data.fonts.push(p5.loadFont('./fonts/peach.ttf'));
+        // data.fonts.push(p5.loadFont('./fonts/animal.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/guangnian.ttf'));
+        // data.fonts.push(p5.loadFont('./fonts/streetfighter.ttf'));
     };
 
     const setup = (p5, canvasParentRef) => {
