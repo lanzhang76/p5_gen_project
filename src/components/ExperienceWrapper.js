@@ -9,6 +9,7 @@ export default function ExperienceWrapper(props) {
     const [selectedString, setSelectedString] = useState(0);
     const [selectedShape, setSelectedShape] = useState(0);
     const [selectedSymbol, setSelectedSymbol] = useState(0);
+    const testString = useState(0);
 
     const handleInput = (e) => {
         setSelectedString(e.target.value);
@@ -44,33 +45,35 @@ export default function ExperienceWrapper(props) {
                     <input ref={inputBox} onChange={handleInput}></input>
                 </div>
 
-                <div className={styles.optionGroup}>
-                    {/* <input type="checkbox" id="stringInput" /> */}
-                    <label className={styles.label}>shape:</label>
-                    {[...Array(5)].map((el, index) => {
-                        return (
+                {testString === true && (
+                    <div className={styles.optionGroup}>
+                        <label className={styles.label}>shape:</label>
+                        {[...Array(5)].map((el, index) => {
+                            return (
+                                <ParamButton
+                                    el={index + 1}
+                                    shapeButtonClick={shapeButtonClick}
+                                    selected={selectedShape}
+                                    key={index + 'g1'}
+                                ></ParamButton>
+                            );
+                        })}
+                    </div>
+                )}
+
+                {testString === true && (
+                    <div className={styles.optionGroup}>
+                        <label className={styles.label}>symbol:</label>
+                        {[...Array(6)].map((el, index) => (
                             <ParamButton
                                 el={index + 1}
-                                shapeButtonClick={shapeButtonClick}
-                                selected={selectedShape}
-                                key={index + 'g1'}
+                                shapeButtonClick={symbolButtonClick}
+                                selected={selectedSymbol}
+                                key={index + 'g_symbole'}
                             ></ParamButton>
-                        );
-                    })}
-                </div>
-
-                <div className={styles.optionGroup}>
-                    {/* <input type="checkbox" id="stringInput" /> */}
-                    <label className={styles.label}>symbol:</label>
-                    {[...Array(6)].map((el, index) => (
-                        <ParamButton
-                            el={index + 1}
-                            shapeButtonClick={symbolButtonClick}
-                            selected={selectedSymbol}
-                            key={index + 'g_symbole'}
-                        ></ParamButton>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )}
 
                 {/* Generate */}
 
