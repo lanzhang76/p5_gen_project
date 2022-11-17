@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./ParamButton.module.scss";
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './ParamButton.module.scss';
 
 export default function ParamButton(props) {
     const [buttonActive, setButtonActive] = useState();
@@ -7,7 +7,7 @@ export default function ParamButton(props) {
 
     const handleClick = (e) => {
         buttonActive ? setButtonActive(false) : setButtonActive(true);
-        props.shapeButtonClick(parseInt(btn.current.innerText));
+        props.shapeButtonClick(parseInt(btn.current.innerText), buttonActive);
     };
 
     useEffect(() => {

@@ -112,33 +112,72 @@ export default function P5Sketch(props) {
             data.params.symbol.selected == false &&
             data.params.shape.selected
         ) {
-            p5.background(p5.random(255), p5.random(255), p5.random(255));
-        }
-
-        if (data.params.shape.selected != false) {
-            console.log(data.params.shape.index);
             switch (data.params.shape.index) {
                 case 1:
-                    shapeFunc.colorGrid(p5, data);
-                    break;
-
-                case 2:
+                    // circle
                     shapeFunc.simpleCircle(p5, data);
                     break;
 
+                case 2:
+                    // square
+                    let squareR = Math.random();
+                    squareR > 0.5
+                        ? shapeFunc.simpleSquare(p5, data)
+                        : shapeFunc.colorBlock(p5, data);
+                    break;
+
                 case 3:
+                    // quad
                     shapeFunc.quads(p5, data);
                     break;
 
                 case 4:
-                    shapeFunc.circleGrid(p5, data);
+                    // line
+                    shapeFunc.lineGrid(p5, data);
                     break;
 
                 case 5:
-                    shapeFunc.stack(p5, data);
+                    // triangle
+                    shapeFunc.triangleGrid(p5, data);
+                    break;
+
+                default:
                     break;
             }
         }
+
+        // if (
+        //     data.params.string.selected == false &&
+        //     data.params.symbol.selected == false &&
+        //     data.params.shape.selected
+        // ) {
+        //     p5.background(p5.random(255), p5.random(255), p5.random(255));
+        // }
+
+        // if (data.params.shape.selected != false) {
+        //     console.log(data.params.shape.index);
+        //     switch (data.params.shape.index) {
+        //         case 1:
+        //             shapeFunc.colorGrid(p5, data);
+        //             break;
+
+        //         case 2:
+        //             shapeFunc.simpleCircle(p5, data);
+        //             break;
+
+        //         case 3:
+        //             shapeFunc.quads(p5, data);
+        //             break;
+
+        //         case 4:
+        //             shapeFunc.circleGrid(p5, data);
+        //             break;
+
+        //         case 5:
+        //             shapeFunc.stack(p5, data);
+        //             break;
+        //     }
+        // }
 
         //
         // LAYER 3:symbol

@@ -13,14 +13,23 @@ export default function ExperienceWrapper(props) {
 
     const handleInput = (e) => {
         setSelectedString(e.target.value);
-        data.params.string.value = e.target.value;
-        data.params.string.selected = true;
+        if (e.target.value.length > 0) {
+            data.params.string.value = e.target.value;
+            data.params.string.selected = true;
+        } else {
+            data.params.string.value = null;
+            data.params.string.selected = false;
+        }
     };
 
-    const shapeButtonClick = (num) => {
+    const shapeButtonClick = (num, unselect) => {
         setSelectedShape(num);
         data.params.shape.index = num;
         data.params.shape.selected = true;
+        if (unselect) {
+            setSelectedShape(0);
+            data.params.shape.selected = false;
+        }
     };
 
     const symbolButtonClick = (num) => {
@@ -45,21 +54,19 @@ export default function ExperienceWrapper(props) {
                     <input ref={inputBox} onChange={handleInput}></input>
                 </div>
 
-                {testString === true && (
-                    <div className={styles.optionGroup}>
-                        <label className={styles.label}>shape:</label>
-                        {[...Array(5)].map((el, index) => {
-                            return (
-                                <ParamButton
-                                    el={index + 1}
-                                    shapeButtonClick={shapeButtonClick}
-                                    selected={selectedShape}
-                                    key={index + 'g1'}
-                                ></ParamButton>
-                            );
-                        })}
-                    </div>
-                )}
+                <div className={styles.optionGroup}>
+                    <label className={styles.label}>shape:</label>
+                    {[...Array(5)].map((el, index) => {
+                        return (
+                            <ParamButton
+                                el={index + 1}
+                                shapeButtonClick={shapeButtonClick}
+                                selected={selectedShape}
+                                key={index + 'g1'}
+                            ></ParamButton>
+                        );
+                    })}
+                </div>
 
                 {testString === true && (
                     <div className={styles.optionGroup}>
