@@ -1,9 +1,10 @@
 export function row(p5, data, str) {
-    let sizes = [50, 60, 70, 80];
-    let size = p5.random(sizes);
+    let sizes = [3, 5, 6, 8];
+    let nums = p5.random(sizes);
 
     let string = str;
-    let step = size * 1.1;
+    let size = p5.height / nums;
+    p5.textSize(size);
 
     let colors = data.colors['row'];
 
@@ -14,10 +15,10 @@ export function row(p5, data, str) {
     let ind = p5.random(colors);
     p5.background(`#${ind[0]}`);
     p5.fill(`#${ind[1]}`);
-    console.log(ind[1]);
 
-    for (let y = 0; y < p5.height / step + step / 2; y++) {
-        let posX = y % 2 == 0 ? 0 : p5.width - p5.textWidth(string);
-        p5.text(string, posX, y + step * y - step / 4);
+    let offset = 0.8;
+    for (let i = 0; i < nums; i++) {
+        let posX = i % 2 == 0 ? 0 : p5.width - p5.textWidth(string);
+        p5.text(string, posX, (i + offset) * size);
     }
 }

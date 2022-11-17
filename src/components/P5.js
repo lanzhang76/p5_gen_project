@@ -97,7 +97,7 @@ export default function P5Sketch(props) {
                     break;
 
                 default:
-                    stringFunc.splash(p5, data, data.params.string.value);
+                    stringFunc.row(p5, data, data.params.string.value);
                     break;
             }
         }
