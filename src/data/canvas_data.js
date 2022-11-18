@@ -85,6 +85,18 @@ export let data = {
             ['F1A760', 'F5C086', 'EADA80'],
             ['5470DB', '95A5E6', '3F8D83'],
         ],
+        shapeQuad: [
+            ['EDD047', 'E08530', 'EBB93F', '85AE35'],
+            ['54B7F0', '53B56F', 'E588A3', 'F5F3EE'],
+            ['BEA7F4', 'F9D949', 'F1A2D3', 'ABDCF1'],
+            ['BEA7F4', 'D8D4FC', 'FAE5C4', 'DBECFE'],
+        ],
+        shapeTri2: [
+            ['FFFFFF', '000000', '3432E2'],
+            ['4C6639', 'D8B55A', 'CCCF95'],
+            ['E5E5DA', '29292A', 'C6C7BA'],
+            ['E68D37', '6A8CCE', 'F1CCC2'],
+        ],
     },
 };
 

@@ -12,7 +12,7 @@ export function triangleGrid(p5, data) {
     p5.noLoop();
 
     p5.push();
-    p5.stroke(0);
+    // p5.stroke(0);
     p5.fill(`#${ind[1]}`);
     p5.strokeWeight(1);
 

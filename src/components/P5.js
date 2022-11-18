@@ -7,6 +7,7 @@ import { data, preloadData } from '../data/canvas_data';
 import * as shapeFunc from '../sketches/shape/_shape';
 import * as symbolFunc from '../sketches/symbol/_symbol';
 import * as stringFunc from '../sketches/text/_text';
+import * as shapeStringFunc from '../sketches/shapeText/_shapeText';
 
 let button;
 let assetCount = 0;
@@ -98,6 +99,53 @@ export default function P5Sketch(props) {
 
                 default:
                     stringFunc.row(p5, data, data.params.string.value);
+                    break;
+            }
+        }
+
+        //
+        // LAYER 1 + LAYER 1
+        //
+        if (
+            data.params.string.value != null &&
+            data.params.shape.selected != false &&
+            data.params.symbol.selected == false
+        ) {
+            switch (data.params.shape.index) {
+                case 1:
+                    // text circle Grid
+                    shapeStringFunc.text_circleGrid(
+                        p5,
+                        data,
+                        data.params.string.value
+                    );
+                    break;
+
+                case 2:
+                    // text color Grid
+                    shapeStringFunc.text_ColorGrid(
+                        p5,
+                        data,
+                        data.params.string.value
+                    );
+                    break;
+
+                case 3:
+                    // text quad
+                    shapeStringFunc.text_quad(
+                        p5,
+                        data,
+                        data.params.string.value
+                    );
+                    break;
+
+                case 4:
+                    // text strokes
+                    shapeStringFunc.text_stroke(
+                        p5,
+                        data,
+                        data.params.string.value
+                    );
                     break;
             }
         }
