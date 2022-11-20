@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic';
 const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
     ssr: false,
 });
+const Svg = dynamic(() => import('p5.js-svg').then((mod) => mod.default), {
+    ssr: false,
+});
 import { data, preloadData } from '../data/canvas_data';
 import * as shapeFunc from '../sketches/shape/_shape';
 import * as symbolFunc from '../sketches/symbol/_symbol';
@@ -11,6 +14,10 @@ import * as shapeStringFunc from '../sketches/shapeText/_shapeText';
 
 let button;
 let assetCount = 0;
+let pixels;
+
+console.log(Sketch);
+console.log(Svg);
 
 export default function P5Sketch(props) {
     let canvasParentRef = useRef();
@@ -27,7 +34,7 @@ export default function P5Sketch(props) {
                 imgs.push(
                     p5.loadImage(preloadData[imgGroup].files[j], (img) => {
                         assetCount++;
-                        console.log(assetCount);
+                        // console.log(assetCount);
                     })
                 );
             }
@@ -43,6 +50,8 @@ export default function P5Sketch(props) {
         // data.fonts.push(p5.loadFont('./fonts/animal.ttf'));
         data.fonts.push(p5.loadFont('./fonts/guangnian.ttf'));
         // data.fonts.push(p5.loadFont('./fonts/streetfighter.ttf'));
+
+        // svg = Svg.loadSVG('./images/svg/smiley.svg');
     };
 
     const setup = (p5, canvasParentRef) => {
@@ -69,6 +78,9 @@ export default function P5Sketch(props) {
     };
 
     const draw = (p5) => {
+        // reset things:
+        p5.noStroke();
+
         //
         // LAYER 1: string
         //
@@ -98,7 +110,7 @@ export default function P5Sketch(props) {
                     break;
 
                 default:
-                    stringFunc.row(p5, data, data.params.string.value);
+                    stringFunc.upsideDown(p5, data, data.params.string.value);
                     break;
             }
         }
@@ -246,11 +258,65 @@ export default function P5Sketch(props) {
         ) {
             symbolFunc.drawSymbol(p5, data, preloadData);
         }
+
+        granulate(p5, 15);
+        // granulateFuzzify(p5, 15);
     };
 
     const windowResized = (p5, event) => {
         p5.resizeCanvas(p5.windowWidth * 0.8, p5.windowWidth * 0.8);
     };
+
+    function granulate(p5, amount) {
+        p5.loadPixels();
+        const d = p5.pixelDensity();
+
+        const pixelsCount = 4 * (p5.width * d) * (p5.height * d);
+        //
+        for (let i = 0; i < pixelsCount; i += 4) {
+            const grainAmount = p5.random(-amount, amount);
+            p5.pixels[i] = p5.pixels[i] + grainAmount;
+            p5.pixels[i + 1] = p5.pixels[i + 1] + p5.random(-amount, amount);
+            p5.pixels[i + 2] =
+                p5.pixels[i + 2] + p5.random(-amount * 2, amount * 2);
+            // p5.pixels[i + 1] = p5.pixels[i + 1] + grainAmount;
+            // p5.pixels[i + 2] = p5.pixels[i + 2] + grainAmount;
+            // comment in, if you want to granulate the alpha value
+            p5.pixels[i + 3] = p5.pixels[i + 3] + grainAmount;
+        }
+        p5.updatePixels();
+    }
+
+    function granulateFuzzify(p5, _amount) {
+        p5.loadPixels();
+        const d = p5.pixelDensity();
+        const fuzzyPixels = 2; // pixels
+        const modC = 4 * fuzzyPixels; // channels * pixels
+        const modW = 4 * p5.width * d;
+        const pixelsCount = modW * (p5.height * d);
+        for (let i = 0; i < pixelsCount; i += 4) {
+            const f = modC + modW;
+            // fuzzify
+            if (p5.pixels[i + f]) {
+                p5.pixels[i] = p5.round((p5.pixels[i] + p5.pixels[i + f]) / 2);
+                p5.pixels[i + 1] = p5.round(
+                    (p5.pixels[i + 1] + p5.pixels[i + f + 1]) / 2
+                );
+                p5.pixels[i + 2] = p5.round(
+                    (p5.pixels[i + 2] + p5.pixels[i + f + 2]) / 2
+                );
+                // comment in, if you want to granulate the alpha value
+                // pixels[i+3] = round((pixels[i+3] + pixels[i+f+3])/2);
+            }
+            // granulate
+            p5.pixels[i] = p5.pixels[i] + p5.random(-_amount, _amount);
+            p5.pixels[i + 1] = p5.pixels[i + 1] + p5.random(-_amount, _amount);
+            p5.pixels[i + 2] = p5.pixels[i + 2] + p5.random(-_amount, _amount);
+            // comment in, if you want to granulate the alpha value
+            // pixels[i+3] = pixels[i+3] + random(-_amount, _amount);
+        }
+        p5.updatePixels();
+    }
 
     return (
         <>

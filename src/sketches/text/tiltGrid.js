@@ -1,5 +1,5 @@
 export function tiltGrid(p5, data, str) {
-    let sizes = [10, 15, 20, 30];
+    let sizes = [15, 20, 30];
     let size = p5.random(sizes);
     let layout = p5.int(p5.random(4));
 
