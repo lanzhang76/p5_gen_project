@@ -1,8 +1,6 @@
 export function text_quad(p5, data, str) {
     let string = str;
 
-    p5.noLoop();
-
     let colors = data.colors['shapeQuad'];
     let ind = p5.random(colors);
 

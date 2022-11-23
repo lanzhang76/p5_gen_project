@@ -3,9 +3,6 @@ import dynamic from 'next/dynamic';
 const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
     ssr: false,
 });
-const Svg = dynamic(() => import('p5.js-svg').then((mod) => mod.default), {
-    ssr: false,
-});
 import { data, preloadData } from '../data/canvas_data';
 import * as shapeFunc from '../sketches/shape/_shape';
 import * as symbolFunc from '../sketches/symbol/_symbol';
@@ -14,10 +11,8 @@ import * as shapeStringFunc from '../sketches/shapeText/_shapeText';
 
 let button;
 let assetCount = 0;
-let pixels;
-
-console.log(Sketch);
-console.log(Svg);
+let mons;
+let symbols;
 
 export default function P5Sketch(props) {
     let canvasParentRef = useRef();
@@ -51,7 +46,8 @@ export default function P5Sketch(props) {
         data.fonts.push(p5.loadFont('./fonts/guangnian.ttf'));
         // data.fonts.push(p5.loadFont('./fonts/streetfighter.ttf'));
 
-        // svg = Svg.loadSVG('./images/svg/smiley.svg');
+        mons = p5.loadFont('./fonts/Montserrat-Black.ttf');
+        symbols = p5.loadFont('./fonts/symbolFont.woff');
     };
 
     const setup = (p5, canvasParentRef) => {
@@ -80,6 +76,7 @@ export default function P5Sketch(props) {
     const draw = (p5) => {
         // reset things:
         p5.noStroke();
+        p5.blendMode(p5.BLEND);
 
         //
         // LAYER 1: string
@@ -157,6 +154,16 @@ export default function P5Sketch(props) {
                         p5,
                         data,
                         data.params.string.value
+                    );
+                    break;
+
+                case 5:
+                    // text strokes
+                    shapeStringFunc.text_triangle(
+                        p5,
+                        data,
+                        data.params.string.value,
+                        mons
                     );
                     break;
             }

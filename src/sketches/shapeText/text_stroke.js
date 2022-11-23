@@ -6,8 +6,6 @@ export function text_stroke(p5, data, str) {
     );
     let size = p5.height / nums;
 
-    p5.noLoop();
-
     let colors = data.colors['shapeTri2'];
     let ind = p5.random(colors);
 

@@ -5,8 +5,6 @@ export function text_circleGrid(p5, data, str) {
 
     let colors = data.colors['shapeTri2'];
 
-    p5.noLoop();
-
     //text
     p5.textFont(p5.random(data.fonts));
     p5.textSize(size);

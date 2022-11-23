@@ -91,6 +91,12 @@ export let data = {
             ['BEA7F4', 'F9D949', 'F1A2D3', 'ABDCF1'],
             ['BEA7F4', 'D8D4FC', 'FAE5C4', 'DBECFE'],
         ],
+        shapeQuad2: [
+            ['E4933C', 'D5C5CD', 'ACB7D7', 'BAD2C2'],
+            ['F4C744', '5C8DEC', '5FB066', 'DC5946'],
+            ['C0AD9D', '7B8287', 'CEAB85', '5C4B30'],
+            ['E4933C', 'BC8F5E', '857842', 'A1552E'],
+        ],
         shapeTri2: [
             ['FFFFFF', '000000', '3432E2'],
             ['4C6639', 'D8B55A', 'CCCF95'],
