@@ -1,15 +1,53 @@
-export function drawSymbol(p5, data, preloadData) {
-    let index = data.params.symbol.index - 1;
-    let imgChosenGroup = data.params.symbol.value[index];
-    let imgChosen = p5.random(imgChosenGroup.imgs);
-    console.log(imgChosen);
-    let w = preloadData[index].w;
-    data.drawSymbol.h = (w * imgChosen.height) / imgChosen.width;
-    p5.image(
-        imgChosen,
-        p5.width / 2 - w / 2,
-        p5.height / 2 - data.drawSymbol.h / 2,
-        w,
-        data.drawSymbol.h
-    );
+export function drawSymbol(p5, data, num, posX, posY, symbols, size, c) {
+    let symbolGroup = [
+        'a',
+        'b',
+        'c',
+        'd',
+        'e',
+        'f',
+        'g',
+        'h',
+        'i',
+        'j',
+        'k',
+        'l',
+        'm',
+        'n',
+        'o',
+        'p',
+        'q',
+        'r',
+        's',
+        't',
+        'u',
+        'v',
+        'w',
+        'x',
+        'y',
+        'z',
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+    ];
+    p5.textFont(symbols, size);
+    let symbol = symbolGroup[num];
+    p5.fill(c);
+    p5.text(symbol, posX - p5.textWidth(symbol) / 2 - 5, posY + size / 2);
 }

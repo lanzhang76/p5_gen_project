@@ -2,14 +2,10 @@ export function lineGrid(p5, data) {
     let steps = [50, 100, 120, 200];
     let step = p5.random(steps);
 
-    p5.noLoop();
-
     let colors = data.colors['shapeDUAL'];
     let ind = p5.random(colors);
     p5.background(`#${ind[0]}`);
-
-    // p5.background(20, 20, 230);
-    p5.noLoop();
+    p5.strokeCap(p5.ROUND);
 
     p5.push();
     p5.stroke(`#${ind[1]}`);

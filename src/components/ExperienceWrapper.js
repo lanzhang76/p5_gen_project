@@ -32,10 +32,14 @@ export default function ExperienceWrapper(props) {
         }
     };
 
-    const symbolButtonClick = (num) => {
+    const symbolButtonClick = (num, unselect) => {
         setSelectedSymbol(num);
         data.params.symbol.index = num;
         data.params.symbol.selected = true;
+        if (unselect) {
+            setSelectedSymbol(null);
+            data.params.symbol.selected = false;
+        }
     };
 
     const generateSketch = (e) => {
@@ -68,19 +72,17 @@ export default function ExperienceWrapper(props) {
                     })}
                 </div>
 
-                {testString === true && (
-                    <div className={styles.optionGroup}>
-                        <label className={styles.label}>symbol:</label>
-                        {[...Array(6)].map((el, index) => (
-                            <ParamButton
-                                el={index + 1}
-                                shapeButtonClick={symbolButtonClick}
-                                selected={selectedSymbol}
-                                key={index + 'g_symbole'}
-                            ></ParamButton>
-                        ))}
-                    </div>
-                )}
+                <div className={styles.optionGroup}>
+                    <label className={styles.label}>symbol:</label>
+                    {[...Array(45)].map((el, index) => (
+                        <ParamButton
+                            el={index + 1}
+                            shapeButtonClick={symbolButtonClick}
+                            selected={selectedSymbol}
+                            key={index + 'g_symbole'}
+                        ></ParamButton>
+                    ))}
+                </div>
 
                 {/* Generate */}
 
