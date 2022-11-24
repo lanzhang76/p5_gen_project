@@ -43,9 +43,7 @@ export default function ExperienceWrapper(props) {
     };
 
     const generateSketch = (e) => {
-        console.log(
-            `text:${selectedString}, shape: ${selectedShape}, symbol: ${selectedSymbol}`
-        );
+        console.log(`text:${selectedString}, shape: ${selectedShape}, symbol: ${selectedSymbol}`);
     };
 
     return (
@@ -62,12 +60,7 @@ export default function ExperienceWrapper(props) {
                     <label className={styles.label}>shape:</label>
                     {[...Array(5)].map((el, index) => {
                         return (
-                            <ParamButton
-                                el={index + 1}
-                                shapeButtonClick={shapeButtonClick}
-                                selected={selectedShape}
-                                key={index + 'g1'}
-                            ></ParamButton>
+                            <ParamButton el={index + 1} shapeButtonClick={shapeButtonClick} selected={selectedShape} key={index + 'g1'}></ParamButton>
                         );
                     })}
                 </div>
@@ -84,13 +77,6 @@ export default function ExperienceWrapper(props) {
                     ))}
                 </div>
 
-                {/* Generate */}
-
-                <div
-                    className={styles.generateButton}
-                    id="generateButton"
-                ></div>
-
                 {/*
                  ***
                  **
@@ -100,6 +86,10 @@ export default function ExperienceWrapper(props) {
                  ***
                  **
                  */}
+
+                {/* Generate */}
+
+                <div className={styles.generateButton} id="generateButton"></div>
 
                 {/* <div className={styles.saveButton}>
           <button>save</button>

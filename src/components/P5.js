@@ -201,7 +201,7 @@ export default function P5Sketch(props) {
 
                 case 3:
                     // quad
-
+                    symbolFunc.shape_symbol_quad(p5, data, symbolFont);
                     break;
 
                 case 4:

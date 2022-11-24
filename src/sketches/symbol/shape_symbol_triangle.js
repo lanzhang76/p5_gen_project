@@ -12,7 +12,7 @@ export function shape_symbol_triangle(p5, data, symbolFont) {
     p5.background(20);
     p5.noStroke();
 
-    // p5.blendMode(p5.LIGHTEST);
+    p5.blendMode(p5.LIGHTEST);
     for (let i = 0; i < num; i++) {
         let x1 = p5.random(0, (p5.width * 3) / 4);
         let y1 = p5.random(0, p5.height);
@@ -25,6 +25,7 @@ export function shape_symbol_triangle(p5, data, symbolFont) {
         p5.triangle(x1, y1, x2 * scaler, y2 * scaler, x3 * scaler, y3 * scaler);
     }
 
-    drawSymbol(p5, data, data.params.symbol.index - 1, p5.width / 2 - 5, p5.height / 2, symbolFont, 160, `#${ind[5]}`);
+    p5.blendMode(p5.BLEND);
+    drawSymbol(p5, data, data.params.symbol.index - 1, p5.width / 2 - 3, p5.height / 2, symbolFont, 160, `#${ind[5]}`);
     drawSymbol(p5, data, data.params.symbol.index - 1, p5.width / 2, p5.height / 2, symbolFont, 160, `#${ind[4]}`);
 }
