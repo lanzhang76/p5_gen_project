@@ -57,9 +57,7 @@ export default function P5Sketch(props) {
 
     const setup = (p5, canvasParentRef) => {
         // set up canvas
-        data.canvas = p5
-            .createCanvas(p5.windowWidth * 0.8, p5.windowWidth * 0.8)
-            .parent(canvasParentRef);
+        data.canvas = p5.createCanvas(p5.windowWidth * 0.8, p5.windowWidth * 0.8).parent(canvasParentRef);
 
         //set up generate button
         button = p5.createButton('generate');
@@ -68,11 +66,7 @@ export default function P5Sketch(props) {
         button.mousePressed(() => {
             p5.clear();
             p5.redraw();
-            console.log(
-                data.params.string.value,
-                data.params.shape.index,
-                data.params.symbol.index
-            );
+            console.log(data.params.string.value, data.params.shape.index, data.params.symbol.index);
         });
         p5.noLoop();
         p5.background(230);
@@ -87,11 +81,7 @@ export default function P5Sketch(props) {
         // LAYER 1: string
         //
 
-        if (
-            data.params.string.value != null &&
-            data.params.symbol.selected == false &&
-            data.params.shape.selected == false
-        ) {
+        if (data.params.string.value != null && data.params.symbol.selected == false && data.params.shape.selected == false) {
             let options = 4;
             let stringFuncNum = Math.floor(Math.random() * options);
             switch (stringFuncNum) {
@@ -120,56 +110,31 @@ export default function P5Sketch(props) {
         //
         // LAYER 1 + LAYER 1
         //
-        if (
-            data.params.string.value != null &&
-            data.params.shape.selected != false &&
-            data.params.symbol.selected == false
-        ) {
+        if (data.params.string.value != null && data.params.shape.selected != false && data.params.symbol.selected == false) {
             switch (data.params.shape.index) {
                 case 1:
                     // text circle Grid
-                    shapeStringFunc.text_circleGrid(
-                        p5,
-                        data,
-                        data.params.string.value
-                    );
+                    shapeStringFunc.text_circleGrid(p5, data, data.params.string.value);
                     break;
 
                 case 2:
                     // text color Grid
-                    shapeStringFunc.text_ColorGrid(
-                        p5,
-                        data,
-                        data.params.string.value
-                    );
+                    shapeStringFunc.text_ColorGrid(p5, data, data.params.string.value);
                     break;
 
                 case 3:
                     // text quad
-                    shapeStringFunc.text_quad(
-                        p5,
-                        data,
-                        data.params.string.value
-                    );
+                    shapeStringFunc.text_quad(p5, data, data.params.string.value);
                     break;
 
                 case 4:
                     // text strokes
-                    shapeStringFunc.text_stroke(
-                        p5,
-                        data,
-                        data.params.string.value
-                    );
+                    shapeStringFunc.text_stroke(p5, data, data.params.string.value);
                     break;
 
                 case 5:
                     // text strokes
-                    shapeStringFunc.text_triangle(
-                        p5,
-                        data,
-                        data.params.string.value,
-                        mons
-                    );
+                    shapeStringFunc.text_triangle(p5, data, data.params.string.value, mons);
                     break;
             }
         }
@@ -179,11 +144,7 @@ export default function P5Sketch(props) {
         //
 
         // if layer 1 and 3 are not selected, add background color
-        if (
-            data.params.string.selected == false &&
-            data.params.symbol.selected == false &&
-            data.params.shape.selected
-        ) {
+        if (data.params.string.selected == false && data.params.symbol.selected == false && data.params.shape.selected) {
             switch (data.params.shape.index) {
                 case 1:
                     // circle
@@ -193,24 +154,25 @@ export default function P5Sketch(props) {
                 case 2:
                     // square
                     let squareR = Math.random();
-                    squareR > 0.5
-                        ? shapeFunc.simpleSquare(p5, data)
-                        : shapeFunc.colorBlock(p5, data);
+                    squareR > 0.5 ? shapeFunc.simpleSquare(p5, data) : shapeFunc.colorBlock(p5, data);
                     break;
 
                 case 3:
                     // quad
-                    shapeFunc.quads(p5, data);
+                    let quadR = Math.random();
+                    quadR > 0.5 ? shapeFunc.quads(p5, data) : shapeFunc.irregularGrid(p5, data);
                     break;
 
                 case 4:
                     // line
+
                     shapeFunc.lineGrid(p5, data);
                     break;
 
                 case 5:
                     // triangle
-                    shapeFunc.triangleGrid(p5, data);
+                    let triangleR = Math.random();
+                    triangleR > 0.5 ? shapeFunc.triangleGrid(p5, data) : shapeFunc.foursideTriangle(p5, data);
                     break;
 
                 default:
@@ -225,11 +187,7 @@ export default function P5Sketch(props) {
         // if layer 1 is selected but 2 is not
 
         // if only layer 2 is selected
-        if (
-            data.params.string.selected == false &&
-            data.params.symbol.selected &&
-            data.params.shape.selected
-        ) {
+        if (data.params.string.selected == false && data.params.symbol.selected && data.params.shape.selected) {
             switch (data.params.shape.index) {
                 case 1:
                     // circle
@@ -238,7 +196,7 @@ export default function P5Sketch(props) {
 
                 case 2:
                     // square
-
+                    symbolFunc.shape_symbol_square(p5, data, symbolFont);
                     break;
 
                 case 3:
@@ -247,12 +205,13 @@ export default function P5Sketch(props) {
                     break;
 
                 case 4:
-                // line
+                    // line
+                    symbolFunc.shape_symbol_line(p5, data, symbolFont);
+                    break;
 
                 case 5:
                     // triangle
                     symbolFunc.shape_symbol_triangle(p5, data, symbolFont);
-
                     break;
 
                 default:
@@ -279,8 +238,7 @@ export default function P5Sketch(props) {
             const grainAmount = p5.random(-amount, amount);
             p5.pixels[i] = p5.pixels[i] + grainAmount;
             p5.pixels[i + 1] = p5.pixels[i + 1] + p5.random(-amount, amount);
-            p5.pixels[i + 2] =
-                p5.pixels[i + 2] + p5.random(-amount * 2, amount * 2);
+            p5.pixels[i + 2] = p5.pixels[i + 2] + p5.random(-amount * 2, amount * 2);
             // p5.pixels[i + 1] = p5.pixels[i + 1] + grainAmount;
             // p5.pixels[i + 2] = p5.pixels[i + 2] + grainAmount;
             // comment in, if you want to granulate the alpha value
@@ -292,12 +250,7 @@ export default function P5Sketch(props) {
     return (
         <>
             <div ref={canvasParentRef} className="p5Parent">
-                <Sketch
-                    preload={preload}
-                    setup={setup}
-                    draw={draw}
-                    windowResized={windowResized}
-                />
+                <Sketch preload={preload} setup={setup} draw={draw} windowResized={windowResized} />
             </div>
         </>
     );

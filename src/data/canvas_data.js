@@ -118,6 +118,25 @@ export let data = {
             ['D6E8AA', 'F1E356', 'BADEF0', 'B4B5B7', 'E8A73B', 'DC7E3F'],
             ['9BBEE4', 'B5D543', 'CEC3E2', '6D8DC6', 'FFFFFF', '3A689C'],
         ],
+        symbolLine: [
+            ['894D3F', 'B99988', '3D312F', '2E2B2C'],
+            ['2B3F7D', '8CA8C2', 'CD9052', 'FFFFFF'],
+            ['141F22', 'D6D2C0', 'DEF450', 'A1B8BB'],
+            ['CB6B4F', 'C7BF91', 'A57D70', '708A8A'],
+            ['B3CBEF', '528C60', 'E1593A', 'EBEC6A'],
+        ],
+        symbolSquare: [
+            ['D1B27E', '9E9C7B', '282828', 'D79F43', '020202'],
+            ['8A9FD4', '5B6FBA', '33499E', 'E6E5E8', '020202'],
+            ['B8D2EA', 'D4D3F0', 'A39BD0', 'C4F3DC', 'F5F5F5'],
+            ['CC802D', 'E0AD4B', 'EBC94E', 'E9BF41', 'F5F5F5'],
+            ['C6C565', 'D8D6D1', 'B8B69B', 'D4BF4B', 'F5F5F5'],
+            ['E1DFD2', 'C1C5AE', 'B8B69B', 'C7D3BA', 'BCBCBA'],
+            ['181912', '524D3B', '6D6957', '6D7570', 'F5F5F5'],
+            ['C0C0BE', '1A4290', 'EEEDE9', '71A6DB', '020202'],
+            ['A2B8D1', '809743', '606749', 'BF643D', '020202'],
+            ['C2E084', 'A3EDEA', '9AC94B', 'EBEC6A', 'F5F5F5'],
+        ],
     },
 };
 
