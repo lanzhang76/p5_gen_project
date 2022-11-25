@@ -40,19 +40,17 @@ export default function P5Sketch(props) {
         // console.log(assetCount);
 
         //preload fonts
-        data.fonts.push(p5.loadFont('./fonts/bear.ttf'));
-        // data.fonts.push(p5.loadFont('./fonts/unicorn.ttf'));
-        data.fonts.push(p5.loadFont('./fonts/peach.ttf'));
-        // data.fonts.push(p5.loadFont('./fonts/animal.ttf'));
-        data.fonts.push(p5.loadFont('./fonts/guangnian.ttf'));
-        // data.fonts.push(p5.loadFont('./fonts/streetfighter.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/JosefinSans.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/Jua-Regular.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/RubikMonoOne-Regular.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/Sen-Regular.ttf'));
 
         for (let i = 0; i < filterPaths.length; i++) {
             data.filters.push(p5.loadImage(filterPaths[i]));
         }
 
         mons = p5.loadFont('./fonts/Montserrat-Black.ttf');
-        symbolFont = p5.loadFont('./fonts/symbolFont.woff');
+        symbolFont = p5.loadFont('./fonts/symbolFont.ttf');
     };
 
     const setup = (p5, canvasParentRef) => {

@@ -20,11 +20,7 @@ export function splash(p5, data, str) {
 
     for (let i = 0; i < repeat; i++) {
         if (i == repeat - 1) p5.fill(`#${ind[1]}`);
-        p5.text(
-            string,
-            p5.width / 2 - p5.textWidth(string) / 2 + i,
-            p5.height / 2 - i
-        );
+        p5.text(string, p5.width / 2 - p5.textWidth(string) / 3, p5.height / 2 - i);
     }
 
     p5.pop();
