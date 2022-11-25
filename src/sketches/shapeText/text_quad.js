@@ -7,7 +7,7 @@ export function text_quad(p5, data, str) {
     p5.background(`#${ind[0]}`);
 
     //variables
-    let stepX = p5.random(50, p5.width / 2 - 10);
+    let stepX = p5.random(70, p5.width / 2 - 10);
     let stepY = stepX * 0.6;
     let offset = 40;
     let x = p5.width / 2;
@@ -31,7 +31,9 @@ export function text_quad(p5, data, str) {
 
     //text
     p5.fill(`#${ind[0]}`);
-    let scaler = p5.map(string.length, 0, 6, 0.6, 0.2);
+    let l = string.length;
+    if (string.length > 6) l = 6;
+    let scaler = p5.map(l, 0, 6, 0.7, 0.3);
     console.log(scaler);
     let size = stepX * scaler;
     p5.textSize(size);

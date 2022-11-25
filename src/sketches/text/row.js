@@ -1,5 +1,5 @@
 export function row(p5, data, str) {
-    let sizes = [3, 5, 6, 8];
+    let sizes = [5, 6, 8];
     let nums = p5.random(sizes);
 
     let string = str;
