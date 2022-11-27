@@ -74,7 +74,7 @@ export default function P5Sketch(props) {
         // reset things:
         p5.noStroke();
         p5.blendMode(p5.BLEND);
-
+        p5.colorMode(p5.RGB, 255);
         //
         // LAYER 1: string
         //
@@ -182,9 +182,9 @@ export default function P5Sketch(props) {
         // LAYER 3:symbol
         //
 
-        // if layer 1 is selected but 2 is not
+        // LAYER3: if layer 1 is selected but 2 is not
 
-        // if only layer 2 is selected
+        // LAYER 3: if only layer 2 is selected
         if (data.params.string.selected == false && data.params.symbol.selected && data.params.shape.selected) {
             switch (data.params.shape.index) {
                 case 1:
@@ -213,6 +213,33 @@ export default function P5Sketch(props) {
                     break;
 
                 default:
+                    break;
+            }
+        }
+
+        //  LAYER 3: only symbol is selected:
+
+        if (data.params.string.value == null && data.params.shape.selected == false && data.params.symbol.selected != false) {
+            let options = 3;
+            let stringFuncNum = Math.floor(Math.random() * options);
+            switch (stringFuncNum) {
+                case 0:
+                    symbolFunc.symbol_random(p5, data, symbolFont);
+                    break;
+
+                case 1:
+                    symbolFunc.symbol_rotate(p5, data, symbolFont);
+                    break;
+
+                case 2:
+                    symbolFunc.symbol_impact(p5, data, symbolFont);
+                    break;
+
+                case 3:
+                    break;
+
+                default:
+                    symbolFunc.symbol_rotate(p5, data, symbolFont);
                     break;
             }
         }

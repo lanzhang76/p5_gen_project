@@ -104,6 +104,14 @@ export let data = {
             ['E5E5DA', '29292A', 'C6C7BA'],
             ['E68D37', '6A8CCE', 'F1CCC2'],
         ],
+        textTriangle: [
+            ['1e7b4e', '34358f', '46a0fc', 'ffae27'],
+            ['B5D543', 'F4F552', 'D0BCA2', '2E2B2C'],
+            ['E0444A', 'E9B454', '55AFEE', 'FFFFFF'],
+            ['E2A054', 'B0D3DE', 'C7C76F', '89A6DE'],
+            ['E7A19F', 'F0D64C', 'ECEDE8', '708A8A'],
+            ['E1593A', '5175EC', 'E8BA53', 'EBEC6A'],
+        ],
         symbolCircle: [
             ['DE8031', '908FD7', 'F5CC4E', '609D46', 'FDFDFC', 'E37233', '070708'],
             ['AEEFF1', 'E8CED9', 'A9B2DC', 'D3B3D0', 'D1D1DB', '976073', 'EBEAE6'],

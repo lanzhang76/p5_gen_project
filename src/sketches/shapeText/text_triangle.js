@@ -4,18 +4,15 @@ export function text_triangle(p5, data, str, mons) {
 
     let string = str;
 
-    let colors = [
-        '#1e7b4e', // background color 1
-        '#34358f', // background color 2
-        '#46a0fc', // shadow color
-        '#ffae27',
-    ]; // font color
+    let colors = data.colors['textTriangle'];
+    let ind = p5.random(colors);
+
     let bgColor = 100; // greyScale bg color 0 or 255
 
     let s;
     s = 135;
     p5.textSize(s);
-    // s = (p5.width / string.length) * 0.8; // font size
+
     let w = p5.textWidth(string);
     s = (p5.width / w) * 120; // font size
 
@@ -26,7 +23,6 @@ export function text_triangle(p5, data, str, mons) {
         p5.textFont(p5.random(data.fonts), s);
     }
 
-    // console.log(p5.textWidth(string));
     let modeNum = 11; // blendMode choice
 
     points = [
@@ -63,10 +59,10 @@ export function text_triangle(p5, data, str, mons) {
 
     let r = p5.int(p5.random(4));
 
-    p5.fill(colors[0]);
+    p5.fill(`#${ind[0]}`);
     p5.triangle(points[r % 4][0], points[r % 4][1], points[(r + 1) % 4][0], points[(r + 1) % 4][1], points[(r + 2) % 4][0], points[(r + 2) % 4][1]);
 
-    p5.fill(colors[1]);
+    p5.fill(`#${ind[1]}`);
     p5.triangle(
         points[(r + 2) % 4][0],
         points[(r + 2) % 4][1],
@@ -76,8 +72,8 @@ export function text_triangle(p5, data, str, mons) {
         points[(r + 4) % 4][1]
     );
 
-    p5.fill(colors[2]);
+    p5.fill(`#${ind[3]}`);
     p5.text(string, p5.width / 2 - p5.textWidth(string) / 2 - 5, p5.height / 2 + s / 3);
-    p5.fill(colors[3]);
+    p5.fill(`#${ind[2]}`);
     p5.text(string, p5.width / 2 - p5.textWidth(string) / 2, p5.height / 2 + s / 3);
 }
