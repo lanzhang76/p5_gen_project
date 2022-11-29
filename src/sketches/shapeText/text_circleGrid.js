@@ -8,8 +8,6 @@ export function text_circleGrid(p5, data, str) {
     //text
     p5.textFont(p5.random(data.fonts));
     p5.textSize(size);
-
-    p5.textSize(size);
     let ind = p5.random(colors);
     console.log(ind);
 

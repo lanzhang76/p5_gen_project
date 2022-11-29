@@ -8,6 +8,7 @@ import * as shapeFunc from '../sketches/shape/_shape';
 import * as symbolFunc from '../sketches/symbol/_symbol';
 import * as stringFunc from '../sketches/text/_text';
 import * as shapeStringFunc from '../sketches/shapeText/_shapeText';
+import * as sssFunc from '../sketches/sss/_sss';
 import * as effects from '../sketches/effects/_effects';
 
 let button;
@@ -182,7 +183,7 @@ export default function P5Sketch(props) {
 
         // LAYER3: if layer 1 is selected but 2 is not
 
-        // LAYER 3: if only layer 2 is selected
+        // LAYER 3: if only layer 2 and 3 are selected
         if (data.params.string.selected == false && data.params.symbol.selected && data.params.shape.selected) {
             switch (data.params.shape.index) {
                 case 1:
@@ -215,7 +216,7 @@ export default function P5Sketch(props) {
             }
         }
 
-        //  LAYER 3: only symbol is selected:
+        //  LAYER 3: only layer 3symbol is selected:
 
         if (data.params.string.value == null && data.params.shape.selected == false && data.params.symbol.selected != false) {
             let options = 3;
@@ -242,9 +243,43 @@ export default function P5Sketch(props) {
             }
         }
 
+        //  LAYER 3: if all layers are selected:
+        if (data.params.string.value != null && data.params.shape.selected != false && data.params.symbol.selected != false) {
+            switch (data.params.shape.index) {
+                case 1:
+                    // circle
+                    sssFunc.starDrop(p5, data, symbolFont, mons);
+                    break;
+
+                case 2:
+                    // square
+
+                    break;
+
+                case 3:
+                    // quad
+
+                    break;
+
+                case 4:
+                    // line
+
+                    break;
+
+                case 5:
+                    // triangle
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         //EFFECTS
         effects.addGrain(p5, 10);
         effects.addFilter(p5, data.filters);
+        console.log(data.filters);
     };
 
     const windowResized = (p5, event) => {
