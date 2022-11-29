@@ -159,6 +159,14 @@ export let data = {
             [['9AC94B', 'A2B8D1', '809743', '606749'], 'BF643D'],
             [['C2E084', 'A3EDEA', '9AC94B', 'EBEC6A'], 'C2E084'],
         ],
+        symbolRandom: ['F9D764', '7969F6', '85FBDF', '97FC68', 'ED72ED', 'EE7A47', 'EB4B41'],
+        symbolString_surround: [
+            ['A9C4B3', 'D985C5'],
+            ['1941EA', '75FB9C'],
+            ['E7A19F', 'B1CC7C'],
+            ['9585DA', 'D4F361'],
+            ['210F80', 'EB7348'],
+        ],
         sss_circle: [
             ['391AF5', 'FFFFFF', 'E7793C'],
             ['94A639', '000000', 'D1D1D1'],

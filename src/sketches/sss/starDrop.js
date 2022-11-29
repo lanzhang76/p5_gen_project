@@ -23,10 +23,11 @@ export function starDrop(p5, data, symbolFont, mons) {
     let padding = 10;
 
     let standardSize = p5.width / 10.5;
+    p5.textFont(mons);
+    p5.textSize(standardSize);
     let standardLength = p5.textWidth(standardStr);
     let s = (standardSize * standardLength) / p5.textWidth(str);
 
-    p5.textFont(mons);
     p5.textSize(s);
     // p5.textSize(standardSize);
 

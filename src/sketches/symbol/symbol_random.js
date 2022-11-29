@@ -3,6 +3,9 @@ import { drawSymbol } from './drawSymbol';
 export function symbol_random(p5, data, symbolFont) {
     p5.noStroke();
 
+    let colors = data.colors['symbolRandom'];
+    console.log(colors);
+
     //circle background
     let num = 8;
     let s1 = p5.random([200, 250, 300, 330, 360]);
@@ -10,7 +13,7 @@ export function symbol_random(p5, data, symbolFont) {
     let p = 30;
     for (let i = 0; i < num; i++) {
         let trans = p5.map(i, 0, num, 150, 255);
-        let c = p5.color(p5.random(255), p5.random(255), p5.random(255), trans);
+        let c = p5.color(`#${p5.random(colors)}`);
         p5.push();
         p5.translate(p5.random(p, p5.width - p), p5.random(p, p5.height - p) - p);
         p5.rotate(p5.random(-p5.PI / 2, p5.PI / 2));

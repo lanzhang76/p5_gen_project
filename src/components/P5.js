@@ -9,6 +9,7 @@ import * as symbolFunc from '../sketches/symbol/_symbol';
 import * as stringFunc from '../sketches/text/_text';
 import * as shapeStringFunc from '../sketches/shapeText/_shapeText';
 import * as sssFunc from '../sketches/sss/_sss';
+import * as symbolStringFunc from '../sketches/symbolText/_symbolText';
 import * as effects from '../sketches/effects/_effects';
 
 let button;
@@ -182,6 +183,27 @@ export default function P5Sketch(props) {
         //
 
         // LAYER3: if layer 1 is selected but 2 is not
+        if (data.params.string.selected != false && data.params.symbol.selected && data.params.shape.selected == false) {
+            let options = 1;
+            let stringFuncNum = Math.floor(Math.random() * options);
+            switch (stringFuncNum) {
+                case 0:
+                    symbolStringFunc.surround(p5, data, symbolFont);
+                    break;
+
+                case 1:
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                default:
+                    break;
+            }
+        }
 
         // LAYER 3: if only layer 2 and 3 are selected
         if (data.params.string.selected == false && data.params.symbol.selected && data.params.shape.selected) {
