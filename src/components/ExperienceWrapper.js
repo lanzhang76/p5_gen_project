@@ -67,7 +67,7 @@ export default function ExperienceWrapper(props) {
 
                 <div className={styles.optionGroup}>
                     <label className={styles.label}>symbol:</label>
-                    {[...Array(45)].map((el, index) => (
+                    {[...Array(35)].map((el, index) => (
                         <ParamButton
                             el={index + 1}
                             shapeButtonClick={symbolButtonClick}

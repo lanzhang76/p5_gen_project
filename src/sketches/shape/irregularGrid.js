@@ -1,9 +1,11 @@
-export function irregularGrid(p5, data) {
+export function irregularGrid(p5, data, c) {
     let w, r, padding, gridDivsX, gridDivsY, gridSpacingX, gridSpacingY;
     let grid = [];
     let range = [10];
     let rRange = [12, 10, 8, 6];
-    let colors = ['#E4933C', '#BC8F5E', '#857842', '#A1552E'];
+
+    let ind = c;
+    console.log(ind[0]);
 
     w = p5.min(p5.width, p5.height);
     r = [-p5.random(rRange), p5.random(rRange)];
@@ -29,7 +31,7 @@ export function irregularGrid(p5, data) {
     p5.stroke(255);
     for (let i = 0; i <= gridDivsX; i++) {
         for (let j = 0; j <= gridDivsY; j++) {
-            p5.stroke(p5.random(colors));
+            p5.stroke(`#${p5.random(ind[0])}`);
             var x = grid[i][j][0];
             var y = grid[i][j][1];
 
@@ -39,7 +41,7 @@ export function irregularGrid(p5, data) {
                 p5.line(x, y, x1, y1);
             }
 
-            p5.stroke(p5.random(colors));
+            p5.stroke(`#${p5.random(ind[0])}`);
 
             if (j < gridDivsY) {
                 // console.log(i,grid[i]);

@@ -151,14 +151,12 @@ export default function P5Sketch(props) {
 
                 case 2:
                     // square
-                    let squareR = Math.random();
-                    squareR > 0.5 ? shapeFunc.simpleSquare(p5, data) : shapeFunc.colorBlock(p5, data);
+                    shapeFunc.colorBlock(p5, data);
                     break;
 
                 case 3:
                     // quad
-                    let quadR = Math.random();
-                    quadR > 0.5 ? shapeFunc.quads(p5, data) : shapeFunc.irregularGrid(p5, data);
+                    shapeFunc.quads(p5, data);
                     break;
 
                 case 4:
@@ -239,7 +237,7 @@ export default function P5Sketch(props) {
                     break;
 
                 default:
-                    symbolFunc.symbol_rotate(p5, data, symbolFont);
+                    symbolFunc.symbol_impact(p5, data, symbolFont);
                     break;
             }
         }
