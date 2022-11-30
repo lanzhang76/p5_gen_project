@@ -24,7 +24,8 @@ export function surround(p5, data, symbolFont) {
     }
 
     let standardSize = p5.width / 10.5;
-    p5.textFont(p5.random(data.fonts), txtSize);
+    p5.textFont(mons);
+    // p5.textFont(p5.random(data.fonts), txtSize);
     p5.textSize(standardSize);
     let standardLength = p5.textWidth(standardStr);
     let txtSize = (standardSize * standardLength) / p5.textWidth(str);

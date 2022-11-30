@@ -9,8 +9,8 @@ export function one(p5, data, symbolFont, mons) {
     let ind = p5.random(colors);
     p5.background(`#${ind[0]}`);
 
-    // p5.textFont(mons);
-    p5.textFont(p5.random(data.fonts));
+    p5.textFont(mons);
+    // p5.textFont(p5.random(data.fonts));
     p5.textSize(s);
 
     //draw text

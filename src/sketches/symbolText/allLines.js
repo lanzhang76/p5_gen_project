@@ -25,8 +25,8 @@ export function allLines(p5, data, symbolFont, mons) {
     }
 
     standardSize = p5.width / 5;
-    // p5.textFont(mons);
-    p5.textFont(p5.random(data.fonts));
+    p5.textFont(mons);
+    // p5.textFont(p5.random(data.fonts));
     s = standardSize;
     p5.textSize(s);
     let num = p5.int(p5.height / s);

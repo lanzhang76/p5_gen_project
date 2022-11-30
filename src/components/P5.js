@@ -43,7 +43,7 @@ export default function P5Sketch(props) {
 
         //preload fonts
         data.fonts.push(p5.loadFont('./fonts/futur.woff'));
-        data.fonts.push(p5.loadFont('./fonts/JosefinSans-Light.woff'));
+        data.fonts.push(p5.loadFont('./fonts/JosefinSans-Bold.woff'));
         data.fonts.push(p5.loadFont('./fonts/JosefinSans-Medium.woff'));
         data.fonts.push(p5.loadFont('./fonts/Jua-Regular.woff'));
         data.fonts.push(p5.loadFont('./fonts/RubikMonoOne-Regular.woff'));
