@@ -42,16 +42,20 @@ export default function P5Sketch(props) {
         // console.log(assetCount);
 
         //preload fonts
-        data.fonts.push(p5.loadFont('./fonts/JosefinSans.ttf'));
-        data.fonts.push(p5.loadFont('./fonts/Jua-Regular.ttf'));
-        data.fonts.push(p5.loadFont('./fonts/RubikMonoOne-Regular.ttf'));
-        data.fonts.push(p5.loadFont('./fonts/Sen-Regular.ttf'));
+        data.fonts.push(p5.loadFont('./fonts/futur.woff'));
+        data.fonts.push(p5.loadFont('./fonts/JosefinSans-Light.woff'));
+        data.fonts.push(p5.loadFont('./fonts/JosefinSans-Medium.woff'));
+        data.fonts.push(p5.loadFont('./fonts/Jua-Regular.woff'));
+        data.fonts.push(p5.loadFont('./fonts/RubikMonoOne-Regular.woff'));
+        data.fonts.push(p5.loadFont('./fonts/Sen-Bold.woff'));
+        data.fonts.push(p5.loadFont('./fonts/Montserrat-Medium.woff'));
+        data.fonts.push(p5.loadFont('./fonts/Montserrat-Bold.woff'));
 
         for (let i = 0; i < filterPaths.length; i++) {
             data.filters.push(p5.loadImage(filterPaths[i]));
         }
 
-        mons = p5.loadFont('./fonts/Montserrat-Black.ttf');
+        mons = p5.loadFont('./fonts/Montserrat-Bold.woff');
         symbolFont = p5.loadFont('./fonts/symbolFont.ttf');
     };
 

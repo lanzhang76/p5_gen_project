@@ -27,6 +27,7 @@ export function square(p5, data, symbolFont, mons) {
     standardSize = p5.width / 10.5;
     p5.textSize(standardSize);
     p5.textFont(mons);
+    p5.textFont(p5.random(data.fonts));
     standardStr = 'WWWWWWWW';
     standardLength = p5.textWidth(standardStr);
     s = (standardSize * standardLength) / p5.textWidth(str);
