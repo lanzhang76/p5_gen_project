@@ -9,8 +9,20 @@ export function surround(p5, data, symbolFont) {
     p5.background(`#${ind[0]}`);
 
     //write out text
-    let standardStr = 'WWWWWWWW';
+    let standardStr = 'WWWWWWWWWW';
     let str = data.params.string.value;
+
+    // str treatment:
+    if (str.length == 1) {
+        str = `${str} ${str} ${str} ${str} ${str}`;
+    }
+    if (str.length == 2) {
+        str = `${str} ${str} ${str}`;
+    }
+    if (str.length === 3) {
+        str = `${str} ${str}`;
+    }
+
     let standardSize = p5.width / 10.5;
     p5.textFont(p5.random(data.fonts), txtSize);
     p5.textSize(standardSize);
@@ -24,7 +36,7 @@ export function surround(p5, data, symbolFont) {
     for (let i = 0; i < 3; i++) {
         co.setAlpha(150 + i * 50);
         p5.fill(co);
-        p5.text(str, p5.width / 2 - p5.textWidth(str) / 2 + 20 - i * 20, p5.height / 2 + txtSize / 2);
+        p5.text(str, p5.width / 2 - p5.textWidth(str) / 2 + 20 - i * 5, p5.height / 2 + txtSize / 2);
     }
 
     // draw symbol

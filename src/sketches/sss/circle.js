@@ -1,6 +1,6 @@
 import { drawSymbol } from '../symbol/drawSymbol';
 
-export function starDrop(p5, data, symbolFont, mons) {
+export function circle(p5, data, symbolFont, mons) {
     let colors = data.colors['sss_circle'];
     let ind = p5.random(colors);
 
@@ -34,12 +34,12 @@ export function starDrop(p5, data, symbolFont, mons) {
     // text calc and draw
     for (let i = 0; i < 5; i++) {
         let c = p5.color(`#${ind[2]}`);
-        c.setAlpha(50 + i * 50);
+        c.setAlpha(30 + i * 60);
         i == 4 ? p5.fill(`#${ind[1]}`) : p5.fill(c);
-        p5.text(str, padding, p5.height - padding - s / 3 + i * 5);
+        p5.text(str, padding, p5.height - padding - s / 2 + i * 5);
     }
 
-    drawSymbolLoop(p5, data, symbolFont, p5.width / 8, p5.height / 4.5, p5.width / 6, ind);
+    drawSymbolLoop(p5, data, symbolFont, p5.width / 7, p5.height / 4.5, p5.width / 6, ind);
     drawSymbolLoop(p5, data, symbolFont, p5.width / 1.6, p5.height / 17, p5.width / 6, ind);
     drawSymbolLoop(p5, data, symbolFont, p5.width / 1.3, p5.height / 2.9, p5.width / 6, ind);
 

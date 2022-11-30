@@ -184,7 +184,7 @@ export default function P5Sketch(props) {
 
         // LAYER3: if layer 1 is selected but 2 is not
         if (data.params.string.selected != false && data.params.symbol.selected && data.params.shape.selected == false) {
-            let options = 1;
+            let options = 4;
             let stringFuncNum = Math.floor(Math.random() * options);
             switch (stringFuncNum) {
                 case 0:
@@ -192,15 +192,19 @@ export default function P5Sketch(props) {
                     break;
 
                 case 1:
+                    symbolStringFunc.twoLines(p5, data, symbolFont, mons);
                     break;
 
                 case 2:
+                    symbolStringFunc.one(p5, data, symbolFont, mons);
                     break;
 
                 case 3:
+                    symbolStringFunc.allLines(p5, data, symbolFont, mons);
                     break;
 
                 default:
+                    symbolStringFunc.allLines(p5, data, symbolFont, mons);
                     break;
             }
         }
@@ -238,11 +242,12 @@ export default function P5Sketch(props) {
             }
         }
 
-        //  LAYER 3: only layer 3symbol is selected:
+        //  LAYER 3: only layer 3 symbol is selected:
 
         if (data.params.string.value == null && data.params.shape.selected == false && data.params.symbol.selected != false) {
             let options = 3;
             let stringFuncNum = Math.floor(Math.random() * options);
+            p5.background(0);
             switch (stringFuncNum) {
                 case 0:
                     symbolFunc.symbol_random(p5, data, symbolFont);
@@ -270,27 +275,27 @@ export default function P5Sketch(props) {
             switch (data.params.shape.index) {
                 case 1:
                     // circle
-                    sssFunc.starDrop(p5, data, symbolFont, mons);
+                    sssFunc.circle(p5, data, symbolFont, mons);
                     break;
 
                 case 2:
                     // square
-
+                    sssFunc.square(p5, data, symbolFont, mons);
                     break;
 
                 case 3:
                     // quad
-
+                    sssFunc.quad(p5, data, symbolFont, mons);
                     break;
 
                 case 4:
                     // line
-
+                    sssFunc.line(p5, data, symbolFont, mons);
                     break;
 
                 case 5:
                     // triangle
-
+                    sssFunc.triangle(p5, data, symbolFont, mons);
                     break;
 
                 default:
