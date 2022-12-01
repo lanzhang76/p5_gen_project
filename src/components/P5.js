@@ -192,7 +192,7 @@ export default function P5Sketch(props) {
             let stringFuncNum = Math.floor(Math.random() * options);
             switch (stringFuncNum) {
                 case 0:
-                    symbolStringFunc.surround(p5, data, symbolFont);
+                    symbolStringFunc.surround(p5, data, symbolFont, mons);
                     break;
 
                 case 1:
@@ -208,7 +208,7 @@ export default function P5Sketch(props) {
                     break;
 
                 default:
-                    symbolStringFunc.allLines(p5, data, symbolFont, mons);
+                    symbolStringFunc.surround(p5, data, symbolFont, mons);
                     break;
             }
         }

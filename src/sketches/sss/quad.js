@@ -58,7 +58,7 @@ function drawQuads(p5, ind) {
     let offset = 14;
     let xOffset = 20;
     let base = p5.width / 4;
-    p5.fill(`#${ind[3]}`);
+    p5.fill(`#${ind[4]}`);
     p5.quad(
         p5.width / 2 - base + offset + xOffset,
         p5.height / 2 - base + 20 + offset,
@@ -70,7 +70,7 @@ function drawQuads(p5, ind) {
         p5.height / 2 + base + 20 + offset
     );
 
-    p5.fill(`#${ind[4]}`);
+    p5.fill(`#${ind[3]}`);
     p5.quad(
         p5.width / 2 - base + xOffset,
         p5.height / 2 - base + 20,

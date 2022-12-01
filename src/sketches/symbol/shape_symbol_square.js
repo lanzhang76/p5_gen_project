@@ -29,8 +29,7 @@ export function shape_symbol_square(p5, data, symbolFont) {
     p5.rectMode(p5.CORNER);
     p5.textSize(size);
     let padding = 10;
-    let c = p5.color(p5.random(255), p5.random(255), p5.random(255), 220);
-    console.log(`#${ind[0]}`, `#${ind[1]}`);
+    let c = ind[2] == '' ? p5.color(p5.random(255), p5.random(255), p5.random(255), 220) : `#${ind[2]}`;
     drawSymbol(
         p5,
         data,

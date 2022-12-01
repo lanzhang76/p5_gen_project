@@ -47,8 +47,8 @@ export function square(p5, data, symbolFont, mons) {
 
     drawSquares(p5, ind);
 
-    let x = p5.width / 3 + 20;
-    let y = (p5.height * 2) / 3;
+    let x = (p5.width / 3) * 1.3;
+    let y = (p5.height * 2) / 2.9;
     let si = p5.width / 4.5;
     drawSymbol(p5, data, data.params.symbol.index - 1, x - 2, y - 2, symbolFont, si, `#${ind[2]}`);
     drawSymbol(p5, data, data.params.symbol.index - 1, x, y, symbolFont, si, `#${ind[1]}`);
@@ -56,9 +56,10 @@ export function square(p5, data, symbolFont, mons) {
 function drawSquares(p5, ind) {
     p5.noStroke();
     let offset = 20;
+    let offset2 = 12;
     p5.fill(`#${ind[4]}`);
     p5.square(p5.width / 5 + offset, (p5.height * 1.8) / 3 - offset, p5.width / 3.5);
-    p5.square((p5.width * 3) / 5 + offset, p5.height / 4 - offset, p5.width / 7);
+    p5.square((p5.width * 3) / 5 + offset2, p5.height / 4 - offset2, p5.width / 7);
 
     p5.fill(`#${ind[3]}`);
     p5.square(p5.width / 5, (p5.height * 1.8) / 3, p5.width / 3.5);
