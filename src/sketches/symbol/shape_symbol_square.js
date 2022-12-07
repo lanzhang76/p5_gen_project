@@ -2,7 +2,7 @@ import { drawSymbol } from './drawSymbol';
 export function shape_symbol_square(p5, data, symbolFont) {
     let colors = data.colors['symbolSquare'];
     let ind = p5.random(colors);
-    let size = 150;
+    let size = 90;
 
     p5.background(`#${ind[0]}`);
     p5.rectMode(p5.CENTER);
@@ -29,15 +29,13 @@ export function shape_symbol_square(p5, data, symbolFont) {
     p5.rectMode(p5.CORNER);
     p5.textSize(size);
     let padding = 10;
-    let c = ind[2] == '' ? p5.color(p5.random(255), p5.random(255), p5.random(255), 220) : `#${ind[2]}`;
-    drawSymbol(
-        p5,
-        data,
-        data.params.symbol.index - 1,
-        p5.random(size / 2 + padding, p5.width - size / 2 - padding),
-        p5.random(size / 2 + padding, p5.height - size / 2 - padding),
-        symbolFont,
-        size,
-        c
-    );
+    let c = ind[2] == '' ? p5.color(p5.random(255), p5.random(255), p5.random(255)) : `#${ind[2]}`;
+    let poss = [
+        [size / 2 + padding, p5.width / 4, size / 2 + padding, p5.height / 4],
+        [(p5.width * 3) / 4, p5.width - size / 2 - padding, size / 2 + padding, p5.height / 4],
+        [size / 2 + padding, p5.width / 4, (p5.height * 3) / 4, p5.height - size / 2 - padding],
+        [(p5.width * 3) / 4, p5.width - size / 2 - padding, p5.height - size / 2 - padding],
+    ];
+    let pos = p5.random(poss);
+    drawSymbol(p5, data, data.params.symbol.index - 1, p5.random(pos[0], pos[1]), p5.random(pos[2], pos[3]), symbolFont, size, c);
 }

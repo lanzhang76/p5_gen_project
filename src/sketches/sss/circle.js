@@ -36,7 +36,7 @@ export function circle(p5, data, symbolFont, mons) {
         let c = p5.color(`#${ind[2]}`);
         c.setAlpha(30 + i * 60);
         i == 4 ? p5.fill(`#${ind[1]}`) : p5.fill(c);
-        p5.text(str, padding, p5.height - padding - s / 2 + i * 5);
+        p5.text(str, padding, p5.height - padding * 3 + i * 5);
     }
 
     drawSymbolLoop(p5, data, symbolFont, p5.width / 7, p5.height / 4.5, p5.width / 6, ind);

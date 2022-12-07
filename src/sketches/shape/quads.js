@@ -1,6 +1,6 @@
 export function quads(p5, data) {
     p5.noStroke();
-    let steps = [2, 4, 6, 8];
+    let steps = [2, 4, 6];
     let colors = data.colors['shapeDUAL'];
     let ind = p5.random(colors);
 
