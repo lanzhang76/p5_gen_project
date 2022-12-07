@@ -56,7 +56,7 @@ export default function P5Sketch(props) {
         }
 
         mons = p5.loadFont('./fonts/Montserrat-Bold.woff');
-        symbolFont = p5.loadFont('./fonts/symbolFont.ttf');
+        symbolFont = p5.loadFont('./fonts/symbolFont.woff');
     };
 
     const setup = (p5, canvasParentRef) => {
