@@ -192,23 +192,24 @@ export default function P5Sketch(props) {
             let stringFuncNum = Math.floor(Math.random() * options);
             switch (stringFuncNum) {
                 case 0:
-                    symbolStringFunc.surround(p5, data, symbolFont, mons);
+                    symbolStringFunc.grid_oneSymbol(p5, data, symbolFont, mons);
+                    // symbolStringFunc.gridSymbol_oneText(p5, data, symbolFont, mons);
                     break;
 
                 case 1:
-                    symbolStringFunc.twoLines(p5, data, symbolFont, mons);
+                    symbolStringFunc.grid_gridSymbol(p5, data, symbolFont, mons);
                     break;
 
                 case 2:
-                    symbolStringFunc.one(p5, data, symbolFont, mons);
+                    symbolStringFunc.gridSymbol_oneText(p5, data, symbolFont, mons);
                     break;
 
                 case 3:
-                    symbolStringFunc.allLines(p5, data, symbolFont, mons);
+                    symbolStringFunc.gridSymbol_threeText(p5, data, symbolFont, mons);
                     break;
 
                 default:
-                    symbolStringFunc.surround(p5, data, symbolFont, mons);
+                    symbolStringFunc.grid_oneSymbol(p5, data, symbolFont, mons);
                     break;
             }
         }
@@ -272,17 +273,20 @@ export default function P5Sketch(props) {
             switch (data.params.shape.index) {
                 case 1:
                     // circle
-                    sssFunc.circle(p5, data, symbolFont, mons);
+                    let rC = p5.random();
+                    rC > 0.5 ? sssFunc.sssGen(p5, data, symbolFont, mons, 'circle') : sssFunc.sssGen2(p5, data, symbolFont, mons, 'circle');
                     break;
 
                 case 2:
                     // square
-                    sssFunc.square(p5, data, symbolFont, mons);
+                    let rS = p5.random();
+                    rS > 0.5 ? sssFunc.sssGen(p5, data, symbolFont, mons, 'square') : sssFunc.sssGen2(p5, data, symbolFont, mons, 'square');
                     break;
 
                 case 3:
                     // quad
-                    sssFunc.quad(p5, data, symbolFont, mons);
+                    let rQ = p5.random();
+                    rQ > 0.5 ? sssFunc.sssGen(p5, data, symbolFont, mons, 'quad') : sssFunc.sssGen2(p5, data, symbolFont, mons, 'quad');
                     break;
 
                 case 4:
@@ -292,7 +296,8 @@ export default function P5Sketch(props) {
 
                 case 5:
                     // triangle
-                    sssFunc.triangle(p5, data, symbolFont, mons);
+                    let rT = p5.random();
+                    rT > 0.5 ? sssFunc.sssGen(p5, data, symbolFont, mons, 'triangle') : sssFunc.sssGen2(p5, data, symbolFont, mons, 'triangle');
                     break;
 
                 default:
@@ -303,7 +308,6 @@ export default function P5Sketch(props) {
         //EFFECTS
         effects.addGrain(p5, 10);
         effects.addFilter(p5, data.filters);
-        console.log(data.filters);
     };
 
     const windowResized = (p5, event) => {

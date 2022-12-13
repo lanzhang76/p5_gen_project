@@ -1,5 +1,5 @@
 import { drawSymbol } from '../symbol/drawSymbol';
-export function triangle(p5, data, symbolFont, mons) {
+export function sssGen2(p5, data, symbolFont, mons, shape) {
     let standardStr;
     let padding = 10;
     let standardSize;
@@ -61,7 +61,21 @@ export function triangle(p5, data, symbolFont, mons) {
     p5.text(str, p5.height / 2 - p5.textWidth(str) / 2 - padding, s - padding);
     p5.pop();
 
-    drawTriangles(p5, ind);
+    if (shape == 'triangle') {
+        drawTriangles(p5, ind);
+    }
+
+    if (shape == 'circle') {
+        drawCircles(p5, ind);
+    }
+
+    if (shape == 'square') {
+        drawSquares(p5, ind);
+    }
+
+    if (shape == 'quad') {
+        drawQuads(p5, ind);
+    }
 
     let x = p5.width / 2;
     let y = p5.height / 2;
@@ -71,9 +85,9 @@ export function triangle(p5, data, symbolFont, mons) {
 }
 function drawTriangles(p5, ind) {
     p5.noStroke();
-    let offsetX = 10;
-    let offsetY = 10;
-    let scaler = 1.1;
+    let offsetX = p5.random(10, 30);
+    let offsetY = p5.random(5, 20);
+    let scaler = 1.4;
 
     p5.fill(`#${ind[1]}`);
     p5.triangle(
@@ -86,8 +100,8 @@ function drawTriangles(p5, ind) {
     );
 
     p5.fill(`#${ind[2]}`);
-    let offsetX2 = -15;
-    let offsetY2 = -40;
+    let offsetX2 = p5.random(-5, -20);
+    let offsetY2 = p5.random(-30, -45);
     p5.triangle(
         p5.width / 2 + offsetX2,
         p5.height / 2 - 90 * scaler - offsetY2,
@@ -96,19 +110,69 @@ function drawTriangles(p5, ind) {
         p5.width / 2 - 80 * scaler + offsetX2,
         p5.height / 2 + 40 * scaler - offsetY2
     );
+}
+
+function drawQuads(p5, ind) {
+    p5.noStroke();
+    let offsetX = p5.random(20, 30);
+    let offsetY = -50;
+    let scaler = 0.9;
 
     p5.fill(`#${ind[1]}`);
-    let scaler2 = 0.5;
-    let offset2 = -10;
-    let offset2Y = 10;
-    p5.triangle(
-        p5.width / 2 + offset2,
-        p5.height / 2 - 90 * scaler2 + offset2Y,
-        p5.width / 2 + 80 * scaler2 + offset2,
-        p5.height / 2 + 40 * scaler2 + offset2Y,
-        p5.width / 2 - 80 * scaler2 + offset2,
-        p5.height / 2 + 40 * scaler2 + offset2Y
+    p5.quad(
+        p5.width / 2 + offsetX,
+        p5.height / 2 - 90 * scaler + offsetY,
+        p5.width / 2 + 80 * scaler + offsetX,
+        p5.height / 2 + 40 * scaler + offsetY,
+        p5.width / 2 + offsetX,
+        p5.height / 2 + 180 * scaler + offsetY,
+        p5.width / 2 - 80 * scaler + offsetX,
+        p5.height / 2 + 40 * scaler + offsetY
     );
+
+    p5.fill(`#${ind[2]}`);
+    let offsetX2 = p5.random(-10, -30);
+    let offsetY2 = 30;
+    p5.quad(
+        p5.width / 2 + offsetX2,
+        p5.height / 2 - 90 * scaler - offsetY2,
+        p5.width / 2 + 80 * scaler + offsetX2,
+        p5.height / 2 + 40 * scaler - offsetY2,
+        p5.width / 2 + offsetX2,
+        p5.height / 2 + 180 * scaler - offsetY2,
+        p5.width / 2 - 80 * scaler + offsetX2,
+        p5.height / 2 + 40 * scaler - offsetY2
+    );
+}
+
+function drawCircles(p5, ind) {
+    p5.noStroke();
+    let offsetX = p5.random(2, 45);
+    let offsetY = p5.random(-20, 20);
+    let scaler = 1.2;
+
+    p5.fill(`#${ind[1]}`);
+    p5.circle(p5.width / 2 + offsetX, p5.height / 2 + offsetY, 150 * scaler);
+
+    p5.fill(`#${ind[2]}`);
+    let offsetX2 = p5.random(-45, -10);
+    let offsetY2 = p5.random(20, 40);
+    p5.circle(p5.width / 2 + offsetX2, p5.height / 2 + offsetY2, 150 * scaler);
+}
+
+function drawSquares(p5, ind) {
+    p5.noStroke();
+    let offsetX = p5.random(2, 35);
+    let offsetY = p5.random(-50, -20);
+    let scaler = 1.4;
+
+    p5.fill(`#${ind[1]}`);
+    p5.square(p5.width / 2 + offsetX, p5.height / 2 + offsetY, 130 * scaler);
+
+    p5.fill(`#${ind[2]}`);
+    let offsetX2 = p5.random(-25, -10);
+    let offsetY2 = p5.random(10, 40);
+    p5.square(p5.width / 2 + offsetX2, p5.height / 2 + offsetY2, 130 * scaler);
 }
 
 function verticalLayout(str, ogstr) {

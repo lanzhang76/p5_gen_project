@@ -1,80 +1,61 @@
 export function text_circleGrid(p5, data, str) {
     let string = str;
-    let nums = p5.random([3, 4, 5]);
-    let size = p5.height / nums;
+    let fontS = p5.width / 6;
+    let colors;
+    let choice = p5.random();
 
-    let colors = data.colors['shapeTri2'];
+    p5.noStroke();
+    let s = p5.random([120, 100, 80]);
+    let step = p5.width + s / s;
+
+    if (choice < 0.33) {
+        let sGrid = p5.random([100, 80, 50]);
+        let stepGrid = p5.width + s / s;
+        colors = data.colors['text_Circle3'];
+        let indGrid = p5.random(colors);
+        p5.background(indGrid[0]);
+        let colorArr = indGrid.slice(1);
+        for (let i = 0; i < stepGrid; i++) {
+            for (let j = 0; j < stepGrid; j++) {
+                p5.fill(p5.random(colorArr));
+                p5.circle(i * sGrid, j * sGrid, sGrid * 0.8);
+            }
+        }
+    } else {
+        let pattern = p5.random();
+
+        if (pattern < 0.5) {
+            colors = data.colors['text_Circle2'];
+        } else {
+            colors = data.colors['text_Circle2'];
+        }
+
+        let ind = p5.random(colors);
+        p5.background(ind[0]);
+
+        for (let y = 0; y < step; y++) {
+            for (let x = 0; x < step; x++) {
+                let w = pattern > 0.5 ? (x % 2 == 0 ? (s * 3) / 4 : (s * 2) / 5) : (s * 3) / 4;
+                if (pattern > 0.5) {
+                    if (x % 2 == 0) {
+                        p5.fill(ind[1]);
+                    } else {
+                        p5.fill(ind[2]);
+                    }
+                } else {
+                    p5.fill(ind[1]);
+                }
+
+                p5.circle(y % 2 == 0 ? x * s : x * s + s / 2, y * s, w);
+            }
+        }
+    }
 
     //text
     p5.textFont(p5.random(data.fonts));
-    p5.textSize(size);
-    let ind = p5.random(colors);
-    console.log(ind);
-
-    p5.background(`#${ind[0]}`);
-    p5.fill(`#${ind[1]}`);
-
-    let offset = 0.8;
-
-    if (string.length < 4) {
-        size = p5.max(size, p5.height / 4);
-        for (let i = 0; i < nums; i++) {
-            let offsetX = p5.random() > 0.5 ? 20 : -20;
-            let posX = p5.width / 2 - p5.textWidth(string) / 2 + offsetX;
-            p5.text(string, posX, (i + offset) * size);
-        }
-    } else {
-        for (let i = 0; i < nums; i++) {
-            let posX = p5.random() > 0.5 ? 0 : p5.width - p5.textWidth(string);
-            p5.text(string, posX, (i + offset) * size);
-        }
-    }
-
-    //shape
-    p5.push();
-    p5.ellipseMode(p5.CORNER);
-
-    p5.noStroke();
-    p5.fill(`#${ind[2]}`);
-    let range = [50, 70, 100];
-    let step = p5.random(range);
-
-    let stopX = p5.random((p5.width * 2) / 3);
-    let stopY = p5.random((p5.height * 2) / 3);
-
-    //area 1
-    for (let x = 0; x < stopX - step / 2; x += step) {
-        for (let y = 0; y < stopY - step / 2; y += step) {
-            p5.circle(x, y, step * 0.6);
-        }
-    }
-
-    //area 2
-    let step2 = p5.random(range);
-    let r2 = p5.random(0.5, 0.8);
-    for (let x = stopX + step2 / 2; x < p5.width; x += step2) {
-        for (let y = 0; y < stopY; y += step2) {
-            p5.circle(x, y, step2 * 0.5);
-        }
-    }
-
-    // area3
-    let step3 = p5.random(range);
-    let r3 = p5.random(0.5, 0.6);
-    for (let x = 0; x < stopX - step3 / 2; x += step3) {
-        for (let y = stopY; y < p5.height; y += step3) {
-            p5.circle(x, y, step3 * p5.random(0.3, 0.5));
-        }
-    }
-
-    // area4
-    let step4 = p5.random(range);
-    let r4 = p5.random(0.5, 0.8);
-    for (let x = stopX + step3 / 2 + step4 / 2; x < p5.width; x += step4) {
-        for (let y = stopY + step3 / 2 + step4 / 2; y < p5.height; y += step4) {
-            p5.circle(x, y, step4 * r4);
-        }
-    }
-
-    p5.pop();
+    p5.textSize(fontS);
+    p5.fill('#181818');
+    p5.text(str, p5.width / 2 - p5.textWidth(str) / 2 - 3, p5.height / 2 + fontS / 3);
+    p5.fill(255);
+    p5.text(str, p5.width / 2 - p5.textWidth(str) / 2, p5.height / 2 + fontS / 3);
 }

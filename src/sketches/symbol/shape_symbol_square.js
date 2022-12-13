@@ -34,7 +34,7 @@ export function shape_symbol_square(p5, data, symbolFont) {
         [size / 2 + padding, p5.width / 4, size / 2 + padding, p5.height / 4],
         [(p5.width * 3) / 4, p5.width - size / 2 - padding, size / 2 + padding, p5.height / 4],
         [size / 2 + padding, p5.width / 4, (p5.height * 3) / 4, p5.height - size / 2 - padding],
-        [(p5.width * 3) / 4, p5.width - size / 2 - padding, p5.height - size / 2 - padding],
+        [(p5.width * 3) / 4, p5.width - size / 2 - padding, (p5.height * 3) / 4, p5.height - size / 2 - padding],
     ];
     let pos = p5.random(poss);
     drawSymbol(p5, data, data.params.symbol.index - 1, p5.random(pos[0], pos[1]), p5.random(pos[2], pos[3]), symbolFont, size, c);

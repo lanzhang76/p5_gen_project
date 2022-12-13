@@ -1,7 +1,7 @@
-import { circle } from './circle';
 import { quad } from './quad';
 import { square } from './square';
-import { triangle } from './triangle';
+import { sssGen2 } from './sssGen2';
 import { line } from './line';
+import { sssGen } from './sssGen';
 
-export { circle, quad, square, triangle, line };
+export { sssGen, quad, square, sssGen2, line };
