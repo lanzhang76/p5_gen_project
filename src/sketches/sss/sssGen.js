@@ -66,7 +66,7 @@ export function sssGen(p5, data, symbolFont, mons, shape) {
 
     if (shape == 'triangle') {
         p5.rectMode(p5.CENTER);
-        drawTriLoop(p5, data, symbolFont, p5.width / 3.5, p5.height / 9, p5.width / 8, ind);
+        drawTriLoop(p5, data, symbolFont, p5.width / 3.5, p5.height / 10, p5.width / 8, ind);
         drawTriLoop(p5, data, symbolFont, p5.width / 2.3, p5.height / 2.6, p5.width / 8, ind);
         drawTriLoop(p5, data, symbolFont, (p5.width * 4.5) / 5, p5.height / 10, p5.width / 8, ind);
     }
