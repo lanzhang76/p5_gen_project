@@ -18,6 +18,6 @@ export function grid_oneSymbol(p5, data, symbolFont, mons) {
 
     p5.fill(255, 255, 255, 30);
     p5.rect(0, 0, p5.width, p5.height);
-    drawSymbol(p5, data, data.params.symbol.index - 1, p5.width / 2 - 5, p5.height / 2, symbolFont, p5.width / 2, ind[4]);
+    drawSymbol(p5, data, data.params.symbol.index - 1, p5.width / 2 - 5, p5.height / 2, symbolFont, p5.width / 2, ind[5]);
     drawSymbol(p5, data, data.params.symbol.index - 1, p5.width / 2, p5.height / 2, symbolFont, p5.width / 2, ind[3]);
 }
