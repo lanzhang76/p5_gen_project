@@ -17,7 +17,7 @@ export function grid_gridSymbol(p5, data, symbolFont, mons) {
         }
     }
 
-    p5.fill(255, 255, 255, 50);
+    p5.fill(255, 255, 255, 150);
     p5.rect(0, 0, p5.width, p5.height);
 
     let symbolS = (p5.width - padding * 2) / 3;

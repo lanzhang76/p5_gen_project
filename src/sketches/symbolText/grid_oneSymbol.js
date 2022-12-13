@@ -1,7 +1,7 @@
 import { drawSymbol } from '../symbol/drawSymbol';
 export function grid_oneSymbol(p5, data, symbolFont, mons) {
     let str = data.params.string.value;
-    let s = 35;
+    let s = p5.width / 5;
     let colors = data.colors['grid_symbol'];
     let ind = p5.random(colors);
 

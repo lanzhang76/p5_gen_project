@@ -85,9 +85,9 @@ export function sssGen2(p5, data, symbolFont, mons, shape) {
 }
 function drawTriangles(p5, ind) {
     p5.noStroke();
-    let offsetX = p5.random(10, 30);
+    let offsetX = p5.random(10, 20);
     let offsetY = p5.random(5, 20);
-    let scaler = 1.4;
+    let scaler = 1.1;
 
     p5.fill(`#${ind[1]}`);
     p5.triangle(
@@ -116,7 +116,7 @@ function drawQuads(p5, ind) {
     p5.noStroke();
     let offsetX = p5.random(20, 30);
     let offsetY = -50;
-    let scaler = 0.9;
+    let scaler = 0.7;
 
     p5.fill(`#${ind[1]}`);
     p5.quad(
@@ -132,7 +132,7 @@ function drawQuads(p5, ind) {
 
     p5.fill(`#${ind[2]}`);
     let offsetX2 = p5.random(-10, -30);
-    let offsetY2 = 30;
+    let offsetY2 = p5.random(25, 30);
     p5.quad(
         p5.width / 2 + offsetX2,
         p5.height / 2 - 90 * scaler - offsetY2,
@@ -147,15 +147,15 @@ function drawQuads(p5, ind) {
 
 function drawCircles(p5, ind) {
     p5.noStroke();
-    let offsetX = p5.random(2, 45);
+    let offsetX = p5.random(2, 30);
     let offsetY = p5.random(-20, 20);
-    let scaler = 1.2;
+    let scaler = 1;
 
     p5.fill(`#${ind[1]}`);
     p5.circle(p5.width / 2 + offsetX, p5.height / 2 + offsetY, 150 * scaler);
 
     p5.fill(`#${ind[2]}`);
-    let offsetX2 = p5.random(-45, -10);
+    let offsetX2 = p5.random(-35, -10);
     let offsetY2 = p5.random(20, 40);
     p5.circle(p5.width / 2 + offsetX2, p5.height / 2 + offsetY2, 150 * scaler);
 }
@@ -163,8 +163,8 @@ function drawCircles(p5, ind) {
 function drawSquares(p5, ind) {
     p5.noStroke();
     let offsetX = p5.random(2, 35);
-    let offsetY = p5.random(-50, -20);
-    let scaler = 1.4;
+    let offsetY = p5.random(-30, -20);
+    let scaler = 1;
 
     p5.fill(`#${ind[1]}`);
     p5.square(p5.width / 2 + offsetX, p5.height / 2 + offsetY, 130 * scaler);
