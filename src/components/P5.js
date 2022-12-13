@@ -250,20 +250,19 @@ export default function P5Sketch(props) {
         //  LAYER 3: only layer 3 symbol is selected:
 
         if (data.params.string.value == null && data.params.shape.selected == false && data.params.symbol.selected != false) {
-            let options = 2;
+            let options = 1;
             let stringFuncNum = Math.floor(Math.random() * options);
-            p5.background(0);
+            // p5.background(0);
             switch (stringFuncNum) {
                 case 0:
-                    symbolFunc.symbol_random(p5, data, symbolFont);
-                    break;
-
-                case 1:
                     symbolFunc.symbol_grid(p5, data, symbolFont);
+                    break;
+                case 1:
+                    // symbolFunc.symbol_random(p5, data, symbolFont);
                     break;
 
                 default:
-                    symbolFunc.symbol_random(p5, data, symbolFont);
+                    symbolFunc.symbol_grid(p5, data, symbolFont);
                     break;
             }
         }
