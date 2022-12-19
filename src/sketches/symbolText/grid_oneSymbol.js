@@ -12,7 +12,7 @@ export function grid_oneSymbol(p5, data, symbolFont, mons) {
     for (let i = 0; i < step; i++) {
         p5.fill(i % 2 == 0 ? ind[1] : ind[2]);
         for (let x = 0; x < 15; x++) {
-            p5.text(str, x * p5.textWidth(str), i * s + (s * 2) / 3);
+            p5.text(str, x * p5.textWidth(str), i * s + s * 0.8);
         }
     }
 
