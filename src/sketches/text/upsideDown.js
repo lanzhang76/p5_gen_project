@@ -1,14 +1,14 @@
 export function upsideDown(p5, data, str) {
     let string = `${str}`;
 
-    let sizes = [8, 10];
+    let sizes = [8];
     let num = p5.random(sizes);
     let size = p5.height / num;
 
     let repeat = p5.width / num;
 
     let step = size * 1.1;
-    let offset = size;
+    let offset = size * 1.1;
     let indPos;
 
     let colors = data.colors['upsideDown'];
@@ -29,9 +29,7 @@ export function upsideDown(p5, data, str) {
                 if (flip > 0.5) {
                     p5.push();
                     p5.translate(
-                        r * p5.textWidth(string) +
-                            indPos * 1 +
-                            p5.textWidth(string[i]),
+                        r * p5.textWidth(string) + indPos * 1 + p5.textWidth(string[i]),
                         y + offset + step * y - step / 4 - (size * 5.1) / 3
                     );
                     p5.rotate(p5.radians(180));
@@ -39,10 +37,7 @@ export function upsideDown(p5, data, str) {
                     p5.pop();
                 } else {
                     p5.push();
-                    p5.translate(
-                        r * p5.textWidth(string) + indPos * 1,
-                        y + offset + step * y - step / 4 - size
-                    );
+                    p5.translate(r * p5.textWidth(string) + indPos * 1, y + offset + step * y - step / 4 - size);
                     p5.text(string[i], 0, 0);
                     p5.pop();
                 }

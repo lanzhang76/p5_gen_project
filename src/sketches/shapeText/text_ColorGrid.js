@@ -17,7 +17,7 @@ export function text_ColorGrid(p5, data, str) {
     p5.background(255);
 
     // draw text
-    let offset = 0.8;
+    let offset = 0.9;
     p5.fill(30);
     if (string.length < 4) {
         size = p5.max(size, p5.height / 4);
